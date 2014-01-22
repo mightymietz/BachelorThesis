@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		272D1A781889206800545543 /* TLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D1A771889206800545543 /* TLogInViewController.m */; };
+		27388B4D1887DD0F0083512D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B4C1887DD0F0083512D /* CoreData.framework */; };
+		27388B4F1887DD180083512D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B4E1887DD180083512D /* MobileCoreServices.framework */; };
+		27388B511887DD280083512D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B501887DD280083512D /* Security.framework */; };
+		27388B531887DD2F0083512D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B521887DD2F0083512D /* SystemConfiguration.framework */; };
+		27388B551887DDDB0083512D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 273F8C4A18858AD80085E6E7 /* libxml2.dylib */; };
+		27388B661887DF880083512D /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B5E1887DF660083512D /* libRestKit.a */; };
+		27388B6B1887E0A30083512D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 27388B6A1887E0A30083512D /* Item.m */; };
+		273F8C4918858A8C0085E6E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273F8C4818858A8C0085E6E7 /* CFNetwork.framework */; };
+		275D38F218899342006A0CCE /* TCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D38F118899342006A0CCE /* TCardCollectionViewCell.m */; };
+		2769CAE8188ECFAD00824DAF /* SHACode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2769CAE7188ECFAD00824DAF /* SHACode.m */; };
+		27C195CE188990E900BE7B66 /* TUsersDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */; };
+		27E64866188831E0003FA9C6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E64865188831E0003FA9C6 /* User.m */; };
+		27EFF3BA187E959A005DE689 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3B9187E959A005DE689 /* Foundation.framework */; };
+		27EFF3BC187E959A005DE689 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3BB187E959A005DE689 /* CoreGraphics.framework */; };
+		27EFF3BE187E959A005DE689 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3BD187E959A005DE689 /* UIKit.framework */; };
+		27EFF3C4187E959A005DE689 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF3C2187E959A005DE689 /* InfoPlist.strings */; };
+		27EFF3C6187E959A005DE689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3C5187E959A005DE689 /* main.m */; };
+		27EFF3CA187E959A005DE689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3C9187E959A005DE689 /* AppDelegate.m */; };
+		27EFF3CD187E959A005DE689 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF3CB187E959A005DE689 /* Main_iPhone.storyboard */; };
+		27EFF3D0187E959B005DE689 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF3CE187E959B005DE689 /* Main_iPad.storyboard */; };
+		27EFF3D3187E959B005DE689 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3D2187E959B005DE689 /* FirstViewController.m */; };
+		27EFF3D6187E959B005DE689 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3D5187E959B005DE689 /* SecondViewController.m */; };
+		27EFF3D8187E959B005DE689 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF3D7187E959B005DE689 /* Images.xcassets */; };
+		27EFF3DF187E959B005DE689 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3DE187E959B005DE689 /* XCTest.framework */; };
+		27EFF3E0187E959B005DE689 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3B9187E959A005DE689 /* Foundation.framework */; };
+		27EFF3E1187E959B005DE689 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3BD187E959A005DE689 /* UIKit.framework */; };
+		27EFF3E9187E959B005DE689 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF3E7187E959B005DE689 /* InfoPlist.strings */; };
+		27EFF3EB187E959B005DE689 /* TudorGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3EA187E959B005DE689 /* TudorGameTests.m */; };
+		27EFF3F6187E9C98005DE689 /* TGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3F5187E9C98005DE689 /* TGameViewController.m */; };
+		27EFF3F9187E9D07005DE689 /* TLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */; };
+		27EFF3FC187E9D9A005DE689 /* TDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */; };
+		27EFF3FF187E9EAD005DE689 /* TTeammanagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */; };
+		27EFF402187E9F52005DE689 /* TSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF401187E9F52005DE689 /* TSettingsViewController.m */; };
+		27EFF405187E9FE5005DE689 /* TProfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF404187E9FE5005DE689 /* TProfilViewController.m */; };
+		27EFF408187EA0C4005DE689 /* TFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF407187EA0C4005DE689 /* TFriendsViewController.m */; };
+		27EFF40C187EA268005DE689 /* TMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF40B187EA268005DE689 /* TMenuButton.m */; };
+		27EFF431187EA9F4005DE689 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF430187EA9F4005DE689 /* AVFoundation.framework */; };
+		27EFF433187EA9FE005DE689 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF432187EA9FE005DE689 /* CoreMedia.framework */; };
+		27EFF435187EAA05005DE689 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF434187EAA05005DE689 /* CoreVideo.framework */; };
+		27EFF437187EAA0B005DE689 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF436187EAA0B005DE689 /* QuartzCore.framework */; };
+		27EFF43C187EABDD005DE689 /* TProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF43B187EABDD005DE689 /* TProductViewController.m */; };
+		27EFF43F187EB0AE005DE689 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF43E187EB0AE005DE689 /* ImageIO.framework */; };
+		27EFF6EB187EB997005DE689 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF6EA187EB997005DE689 /* Product.m */; };
+		27EFF6ED187ED095005DE689 /* EANCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27EFF6EC187ED095005DE689 /* EANCodes.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27388B5D1887DF660083512D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		27388B5F1887DF660083512D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		27388B611887DF660083512D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		27388B631887DF660083512D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		27388B671887E0450083512D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160E61145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		27EFF3E2187E959B005DE689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27EFF3AE187E959A005DE689 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27EFF3B5187E959A005DE689;
+			remoteInfo = TudorGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		272D1A761889206800545543 /* TLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLogInViewController.h; sourceTree = "<group>"; };
+		272D1A771889206800545543 /* TLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLogInViewController.m; sourceTree = "<group>"; };
+		27388B4C1887DD0F0083512D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		27388B4E1887DD180083512D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		27388B501887DD280083512D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		27388B521887DD2F0083512D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		27388B561887DF660083512D /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		27388B691887E0A30083512D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		27388B6A1887E0A30083512D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		273F8C4818858A8C0085E6E7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		273F8C4A18858AD80085E6E7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		275D38F018899342006A0CCE /* TCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCardCollectionViewCell.h; sourceTree = "<group>"; };
+		275D38F118899342006A0CCE /* TCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCardCollectionViewCell.m; sourceTree = "<group>"; };
+		2769CAE6188ECFAD00824DAF /* SHACode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHACode.h; sourceTree = "<group>"; };
+		2769CAE7188ECFAD00824DAF /* SHACode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHACode.m; sourceTree = "<group>"; };
+		2769CAE9188ED0BD00824DAF /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		27C195CC188990E900BE7B66 /* TUsersDeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUsersDeckViewController.h; sourceTree = "<group>"; };
+		27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUsersDeckViewController.m; sourceTree = "<group>"; };
+		27E64864188831E0003FA9C6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		27E64865188831E0003FA9C6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		27EFF3B6187E959A005DE689 /* TudorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TudorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27EFF3B9187E959A005DE689 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27EFF3BB187E959A005DE689 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		27EFF3BD187E959A005DE689 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		27EFF3C1187E959A005DE689 /* TudorGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TudorGame-Info.plist"; sourceTree = "<group>"; };
+		27EFF3C3187E959A005DE689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27EFF3C5187E959A005DE689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27EFF3C7187E959A005DE689 /* TudorGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TudorGame-Prefix.pch"; sourceTree = "<group>"; };
+		27EFF3C8187E959A005DE689 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		27EFF3C9187E959A005DE689 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		27EFF3CC187E959A005DE689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		27EFF3CF187E959B005DE689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		27EFF3D1187E959B005DE689 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		27EFF3D2187E959B005DE689 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		27EFF3D4187E959B005DE689 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		27EFF3D5187E959B005DE689 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		27EFF3D7187E959B005DE689 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		27EFF3DD187E959B005DE689 /* TudorGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TudorGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27EFF3DE187E959B005DE689 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		27EFF3E6187E959B005DE689 /* TudorGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TudorGameTests-Info.plist"; sourceTree = "<group>"; };
+		27EFF3E8187E959B005DE689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27EFF3EA187E959B005DE689 /* TudorGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TudorGameTests.m; sourceTree = "<group>"; };
+		27EFF3F4187E9C98005DE689 /* TGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGameViewController.h; sourceTree = "<group>"; };
+		27EFF3F5187E9C98005DE689 /* TGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGameViewController.m; sourceTree = "<group>"; };
+		27EFF3F7187E9D07005DE689 /* TLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLobbyViewController.h; sourceTree = "<group>"; };
+		27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLobbyViewController.m; sourceTree = "<group>"; };
+		27EFF3FA187E9D9A005DE689 /* TDeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDeckViewController.h; sourceTree = "<group>"; };
+		27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDeckViewController.m; sourceTree = "<group>"; };
+		27EFF3FD187E9EAD005DE689 /* TTeammanagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTeammanagementViewController.h; sourceTree = "<group>"; };
+		27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTeammanagementViewController.m; sourceTree = "<group>"; };
+		27EFF400187E9F52005DE689 /* TSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSettingsViewController.h; sourceTree = "<group>"; };
+		27EFF401187E9F52005DE689 /* TSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSettingsViewController.m; sourceTree = "<group>"; };
+		27EFF403187E9FE5005DE689 /* TProfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProfilViewController.h; sourceTree = "<group>"; };
+		27EFF404187E9FE5005DE689 /* TProfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProfilViewController.m; sourceTree = "<group>"; };
+		27EFF406187EA0C4005DE689 /* TFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFriendsViewController.h; sourceTree = "<group>"; };
+		27EFF407187EA0C4005DE689 /* TFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFriendsViewController.m; sourceTree = "<group>"; };
+		27EFF40A187EA268005DE689 /* TMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuButton.h; sourceTree = "<group>"; };
+		27EFF40B187EA268005DE689 /* TMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuButton.m; sourceTree = "<group>"; };
+		27EFF430187EA9F4005DE689 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		27EFF432187EA9FE005DE689 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		27EFF434187EAA05005DE689 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		27EFF436187EAA0B005DE689 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27EFF438187EAA27005DE689 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		27EFF43A187EABDD005DE689 /* TProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProductViewController.h; sourceTree = "<group>"; };
+		27EFF43B187EABDD005DE689 /* TProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProductViewController.m; sourceTree = "<group>"; };
+		27EFF43D187EADB4005DE689 /* AppSpecificValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSpecificValues.h; sourceTree = "<group>"; };
+		27EFF43E187EB0AE005DE689 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		27EFF6E9187EB997005DE689 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		27EFF6EA187EB997005DE689 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		27EFF6EC187ED095005DE689 /* EANCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = EANCodes.plist; path = ../EANCodes.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27EFF3B3187E959A005DE689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27388B661887DF880083512D /* libRestKit.a in Frameworks */,
+				27388B551887DDDB0083512D /* libxml2.dylib in Frameworks */,
+				27388B531887DD2F0083512D /* SystemConfiguration.framework in Frameworks */,
+				27388B511887DD280083512D /* Security.framework in Frameworks */,
+				27388B4F1887DD180083512D /* MobileCoreServices.framework in Frameworks */,
+				27388B4D1887DD0F0083512D /* CoreData.framework in Frameworks */,
+				273F8C4918858A8C0085E6E7 /* CFNetwork.framework in Frameworks */,
+				27EFF43F187EB0AE005DE689 /* ImageIO.framework in Frameworks */,
+				27EFF437187EAA0B005DE689 /* QuartzCore.framework in Frameworks */,
+				27EFF435187EAA05005DE689 /* CoreVideo.framework in Frameworks */,
+				27EFF433187EA9FE005DE689 /* CoreMedia.framework in Frameworks */,
+				27EFF431187EA9F4005DE689 /* AVFoundation.framework in Frameworks */,
+				27EFF3BC187E959A005DE689 /* CoreGraphics.framework in Frameworks */,
+				27EFF3BE187E959A005DE689 /* UIKit.framework in Frameworks */,
+				27EFF3BA187E959A005DE689 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27EFF3DA187E959B005DE689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27EFF3DF187E959B005DE689 /* XCTest.framework in Frameworks */,
+				27EFF3E1187E959B005DE689 /* UIKit.framework in Frameworks */,
+				27EFF3E0187E959B005DE689 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27388B571887DF660083512D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27388B5E1887DF660083512D /* libRestKit.a */,
+				27388B601887DF660083512D /* RestKitTests.octest */,
+				27388B621887DF660083512D /* RestKit.framework */,
+				27388B641887DF660083512D /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		275D38EC18899322006A0CCE /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				275D38F018899342006A0CCE /* TCardCollectionViewCell.h */,
+				275D38F118899342006A0CCE /* TCardCollectionViewCell.m */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		2769CAE2188ECF9300824DAF /* Toolbox */ = {
+			isa = PBXGroup;
+			children = (
+				2769CAE6188ECFAD00824DAF /* SHACode.h */,
+				2769CAE7188ECFAD00824DAF /* SHACode.m */,
+			);
+			name = Toolbox;
+			sourceTree = "<group>";
+		};
+		27D7D52E187FE7B00060ED46 /* HeaderFiles */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF43D187EADB4005DE689 /* AppSpecificValues.h */,
+			);
+			name = HeaderFiles;
+			sourceTree = "<group>";
+		};
+		27EFF3AD187E959A005DE689 = {
+			isa = PBXGroup;
+			children = (
+				27388B561887DF660083512D /* RestKit.xcodeproj */,
+				27EFF3BF187E959A005DE689 /* TudorGame */,
+				27EFF3E4187E959B005DE689 /* TudorGameTests */,
+				27EFF3B8187E959A005DE689 /* Frameworks */,
+				27EFF3B7187E959A005DE689 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27EFF3B7187E959A005DE689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3B6187E959A005DE689 /* TudorGame.app */,
+				27EFF3DD187E959B005DE689 /* TudorGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27EFF3B8187E959A005DE689 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2769CAE9188ED0BD00824DAF /* libcommonCrypto.dylib */,
+				27388B521887DD2F0083512D /* SystemConfiguration.framework */,
+				27388B501887DD280083512D /* Security.framework */,
+				27388B4E1887DD180083512D /* MobileCoreServices.framework */,
+				27388B4C1887DD0F0083512D /* CoreData.framework */,
+				273F8C4A18858AD80085E6E7 /* libxml2.dylib */,
+				273F8C4818858A8C0085E6E7 /* CFNetwork.framework */,
+				27EFF43E187EB0AE005DE689 /* ImageIO.framework */,
+				27EFF438187EAA27005DE689 /* libiconv.dylib */,
+				27EFF436187EAA0B005DE689 /* QuartzCore.framework */,
+				27EFF434187EAA05005DE689 /* CoreVideo.framework */,
+				27EFF432187EA9FE005DE689 /* CoreMedia.framework */,
+				27EFF430187EA9F4005DE689 /* AVFoundation.framework */,
+				27EFF3B9187E959A005DE689 /* Foundation.framework */,
+				27EFF3BB187E959A005DE689 /* CoreGraphics.framework */,
+				27EFF3BD187E959A005DE689 /* UIKit.framework */,
+				27EFF3DE187E959B005DE689 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27EFF3BF187E959A005DE689 /* TudorGame */ = {
+			isa = PBXGroup;
+			children = (
+				2769CAE2188ECF9300824DAF /* Toolbox */,
+				275D38EC18899322006A0CCE /* CollectionViewCells */,
+				27D7D52E187FE7B00060ED46 /* HeaderFiles */,
+				27EFF6EE187ED80B005DE689 /* Data */,
+				27EFF409187EA242005DE689 /* ViewControllers */,
+				27EFF3C8187E959A005DE689 /* AppDelegate.h */,
+				27EFF3C9187E959A005DE689 /* AppDelegate.m */,
+				27EFF3CB187E959A005DE689 /* Main_iPhone.storyboard */,
+				27EFF3CE187E959B005DE689 /* Main_iPad.storyboard */,
+				27EFF3D1187E959B005DE689 /* FirstViewController.h */,
+				27EFF3D2187E959B005DE689 /* FirstViewController.m */,
+				27EFF3D4187E959B005DE689 /* SecondViewController.h */,
+				27EFF3D5187E959B005DE689 /* SecondViewController.m */,
+				27EFF3D7187E959B005DE689 /* Images.xcassets */,
+				27EFF3C0187E959A005DE689 /* Supporting Files */,
+				27EFF40A187EA268005DE689 /* TMenuButton.h */,
+				27EFF40B187EA268005DE689 /* TMenuButton.m */,
+				27EFF6E9187EB997005DE689 /* Product.h */,
+				27EFF6EA187EB997005DE689 /* Product.m */,
+				27388B691887E0A30083512D /* Item.h */,
+				27388B6A1887E0A30083512D /* Item.m */,
+				27E64864188831E0003FA9C6 /* User.h */,
+				27E64865188831E0003FA9C6 /* User.m */,
+			);
+			path = TudorGame;
+			sourceTree = "<group>";
+		};
+		27EFF3C0187E959A005DE689 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3C1187E959A005DE689 /* TudorGame-Info.plist */,
+				27EFF3C2187E959A005DE689 /* InfoPlist.strings */,
+				27EFF3C5187E959A005DE689 /* main.m */,
+				27EFF3C7187E959A005DE689 /* TudorGame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27EFF3E4187E959B005DE689 /* TudorGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3EA187E959B005DE689 /* TudorGameTests.m */,
+				27EFF3E5187E959B005DE689 /* Supporting Files */,
+			);
+			path = TudorGameTests;
+			sourceTree = "<group>";
+		};
+		27EFF3E5187E959B005DE689 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3E6187E959B005DE689 /* TudorGameTests-Info.plist */,
+				27EFF3E7187E959B005DE689 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27EFF409187EA242005DE689 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3F4187E9C98005DE689 /* TGameViewController.h */,
+				27EFF3F5187E9C98005DE689 /* TGameViewController.m */,
+				27EFF3F7187E9D07005DE689 /* TLobbyViewController.h */,
+				27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */,
+				27EFF3FA187E9D9A005DE689 /* TDeckViewController.h */,
+				27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */,
+				27EFF3FD187E9EAD005DE689 /* TTeammanagementViewController.h */,
+				27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */,
+				27EFF400187E9F52005DE689 /* TSettingsViewController.h */,
+				27EFF401187E9F52005DE689 /* TSettingsViewController.m */,
+				27EFF403187E9FE5005DE689 /* TProfilViewController.h */,
+				27EFF404187E9FE5005DE689 /* TProfilViewController.m */,
+				27EFF406187EA0C4005DE689 /* TFriendsViewController.h */,
+				27EFF407187EA0C4005DE689 /* TFriendsViewController.m */,
+				27EFF43A187EABDD005DE689 /* TProductViewController.h */,
+				27EFF43B187EABDD005DE689 /* TProductViewController.m */,
+				272D1A761889206800545543 /* TLogInViewController.h */,
+				272D1A771889206800545543 /* TLogInViewController.m */,
+				27C195CC188990E900BE7B66 /* TUsersDeckViewController.h */,
+				27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27EFF6EE187ED80B005DE689 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF6EC187ED095005DE689 /* EANCodes.plist */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27EFF3B5187E959A005DE689 /* TudorGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27EFF3EE187E959B005DE689 /* Build configuration list for PBXNativeTarget "TudorGame" */;
+			buildPhases = (
+				27EFF3B2187E959A005DE689 /* Sources */,
+				27EFF3B3187E959A005DE689 /* Frameworks */,
+				27EFF3B4187E959A005DE689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27388B681887E0450083512D /* PBXTargetDependency */,
+			);
+			name = TudorGame;
+			productName = TudorGame;
+			productReference = 27EFF3B6187E959A005DE689 /* TudorGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27EFF3DC187E959B005DE689 /* TudorGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27EFF3F1187E959B005DE689 /* Build configuration list for PBXNativeTarget "TudorGameTests" */;
+			buildPhases = (
+				27EFF3D9187E959B005DE689 /* Sources */,
+				27EFF3DA187E959B005DE689 /* Frameworks */,
+				27EFF3DB187E959B005DE689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27EFF3E3187E959B005DE689 /* PBXTargetDependency */,
+			);
+			name = TudorGameTests;
+			productName = TudorGameTests;
+			productReference = 27EFF3DD187E959B005DE689 /* TudorGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27EFF3AE187E959A005DE689 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "David Joerg";
+				TargetAttributes = {
+					27EFF3DC187E959B005DE689 = {
+						TestTargetID = 27EFF3B5187E959A005DE689;
+					};
+				};
+			};
+			buildConfigurationList = 27EFF3B1187E959A005DE689 /* Build configuration list for PBXProject "TudorGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27EFF3AD187E959A005DE689;
+			productRefGroup = 27EFF3B7187E959A005DE689 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 27388B571887DF660083512D /* Products */;
+					ProjectRef = 27388B561887DF660083512D /* RestKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				27EFF3B5187E959A005DE689 /* TudorGame */,
+				27EFF3DC187E959B005DE689 /* TudorGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		27388B5E1887DF660083512D /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 27388B5D1887DF660083512D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27388B601887DF660083512D /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 27388B5F1887DF660083512D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27388B621887DF660083512D /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 27388B611887DF660083512D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27388B641887DF660083512D /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 27388B631887DF660083512D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27EFF3B4187E959A005DE689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27EFF3D0187E959B005DE689 /* Main_iPad.storyboard in Resources */,
+				27EFF3D8187E959B005DE689 /* Images.xcassets in Resources */,
+				27EFF3CD187E959A005DE689 /* Main_iPhone.storyboard in Resources */,
+				27EFF3C4187E959A005DE689 /* InfoPlist.strings in Resources */,
+				27EFF6ED187ED095005DE689 /* EANCodes.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27EFF3DB187E959B005DE689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27EFF3E9187E959B005DE689 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27EFF3B2187E959A005DE689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27E64866188831E0003FA9C6 /* User.m in Sources */,
+				27388B6B1887E0A30083512D /* Item.m in Sources */,
+				27EFF3D6187E959B005DE689 /* SecondViewController.m in Sources */,
+				2769CAE8188ECFAD00824DAF /* SHACode.m in Sources */,
+				27EFF40C187EA268005DE689 /* TMenuButton.m in Sources */,
+				272D1A781889206800545543 /* TLogInViewController.m in Sources */,
+				27EFF43C187EABDD005DE689 /* TProductViewController.m in Sources */,
+				27EFF3FF187E9EAD005DE689 /* TTeammanagementViewController.m in Sources */,
+				27C195CE188990E900BE7B66 /* TUsersDeckViewController.m in Sources */,
+				27EFF3F6187E9C98005DE689 /* TGameViewController.m in Sources */,
+				27EFF3CA187E959A005DE689 /* AppDelegate.m in Sources */,
+				27EFF402187E9F52005DE689 /* TSettingsViewController.m in Sources */,
+				27EFF3D3187E959B005DE689 /* FirstViewController.m in Sources */,
+				275D38F218899342006A0CCE /* TCardCollectionViewCell.m in Sources */,
+				27EFF3F9187E9D07005DE689 /* TLobbyViewController.m in Sources */,
+				27EFF408187EA0C4005DE689 /* TFriendsViewController.m in Sources */,
+				27EFF6EB187EB997005DE689 /* Product.m in Sources */,
+				27EFF3C6187E959A005DE689 /* main.m in Sources */,
+				27EFF3FC187E9D9A005DE689 /* TDeckViewController.m in Sources */,
+				27EFF405187E9FE5005DE689 /* TProfilViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27EFF3D9187E959B005DE689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27EFF3EB187E959B005DE689 /* TudorGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27388B681887E0450083512D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKitFramework;
+			targetProxy = 27388B671887E0450083512D /* PBXContainerItemProxy */;
+		};
+		27EFF3E3187E959B005DE689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27EFF3B5187E959A005DE689 /* TudorGame */;
+			targetProxy = 27EFF3E2187E959B005DE689 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27EFF3C2187E959A005DE689 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27EFF3C3187E959A005DE689 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27EFF3CB187E959A005DE689 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27EFF3CC187E959A005DE689 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		27EFF3CE187E959B005DE689 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27EFF3CF187E959B005DE689 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		27EFF3E7187E959B005DE689 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27EFF3E8187E959B005DE689 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27EFF3EC187E959B005DE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27EFF3ED187E959B005DE689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27EFF3EF187E959B005DE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
+				INFOPLIST_FILE = "TudorGame/TudorGame-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/deejay/Desktop/Tudor\\ Unterlagen/BachelorThesis/TudorGame/TudorGame/ZBarSDK",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				OTHER_CFLAGS = "-I/usr/include/libxml2";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		27EFF3F0187E959B005DE689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
+				INFOPLIST_FILE = "TudorGame/TudorGame-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/deejay/Desktop/Tudor\\ Unterlagen/BachelorThesis/TudorGame/TudorGame/ZBarSDK",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				OTHER_CFLAGS = "-I/usr/include/libxml2";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		27EFF3F2187E959B005DE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TudorGame.app/TudorGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TudorGameTests/TudorGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		27EFF3F3187E959B005DE689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TudorGame.app/TudorGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
+				INFOPLIST_FILE = "TudorGameTests/TudorGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27EFF3B1187E959A005DE689 /* Build configuration list for PBXProject "TudorGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27EFF3EC187E959B005DE689 /* Debug */,
+				27EFF3ED187E959B005DE689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27EFF3EE187E959B005DE689 /* Build configuration list for PBXNativeTarget "TudorGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27EFF3EF187E959B005DE689 /* Debug */,
+				27EFF3F0187E959B005DE689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27EFF3F1187E959B005DE689 /* Build configuration list for PBXNativeTarget "TudorGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27EFF3F2187E959B005DE689 /* Debug */,
+				27EFF3F3187E959B005DE689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27EFF3AE187E959A005DE689 /* Project object */;
+}

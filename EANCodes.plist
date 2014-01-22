@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>00-13</key>
+	<string>U.S.A. &amp; Kanada (UCC)</string>
+    <key>20-29</key>
+	<string>Kennzeichen für interne Nummerierungen</string>
+    <key>30-37</key>
+	<string>Frankreich (GENCOD-EAN France)</string>
+    <key>400-440</key>
+	<string>Deutschland (GS1 (CCG))</string>
+    
+</dict>
+</plist>
