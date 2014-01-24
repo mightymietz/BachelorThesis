@@ -9,6 +9,7 @@
 #import "User.h"
 #import "Product.h"
 #import "AppSpecificValues.h"
+#import "Nutritive.h"
 #import <RestKit/RestKit.h>
 @implementation User
 
@@ -68,14 +69,34 @@
 
 -(void)getProductsFromServerWithCompletion:(void (^)(BOOL finished))completion
 {
- 
+    
+    
+    
+    // Now configure the Nutritive mapping
+    RKObjectMapping *nutritiveMapping = [RKObjectMapping mappingForClass:[Nutritive class] ];
+    [nutritiveMapping addAttributeMappingsFromDictionary:@{
+                                                         @"id": @"nutritiveID",
+                                                         @"value": @"value",
+                                                         @"name": @"name",
+                                                         @"unit" : @"unit"
+                                                         }];
+
+  
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Product class]];
     
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
+                                                                                   toKeyPath:@"nutritives"
+                                                                                 withMapping:nutritiveMapping]];
     [ mapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
                                                    @"eantype" : @"EANType",
-                                                   @"name" :@"name",
+                                                   @"wikiFoodID" : @"wikiFoodID",
+                                                   @"name" : @"name",
                                                    @"ingredients" : @"ingredients",
-                                                   @"nutritives" : @"nutritives"}];
+                                              
+                                                  }];
+    
+    // Define the relationship mapping
+   // [articleMapping mapKeyPath:@"author" toRelationship:@"authors" withMapping:authorMapping];
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
@@ -84,9 +105,12 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
     
+    
+    
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result)
      {
        
+         
          NSArray *resultArray = result.array;
          self.products = resultArray;
         
@@ -98,6 +122,7 @@
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                          RKLogError(@"Operation failed with error: %@", error);
                                      }];
+    
     
     [operation start];
     
