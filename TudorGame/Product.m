@@ -11,23 +11,25 @@
 @implementation Product
 
 
--(NSString *)country
+/*-(NSString *)country
 {
     
     
     return [self encodeEANToCountry:self.EANCode];
-}
+}*/
 
--(NSString*) encodeEANToCountry:(NSString*)code
+
+
+-(NSString*) encodeEANToCountry:(NSInteger*)code
 {
     NSString *country = nil;
-    NSString *path = [[NSBundle mainBundle] bundlePath];
+    /*NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"EANCodes.plist"];
     NSDictionary *plistDict = [[NSDictionary alloc] initWithContentsOfFile:finalPath];
     
     NSMutableDictionary *tempDict = (NSMutableDictionary*) plistDict;
     NSMutableString *str = nil;
-    int strLength = self.EANCode.length;
+    int strLength = NSString;
     
 
         
@@ -67,7 +69,7 @@
             
         
         
-    }
+    }*/
     
     return country;
 
@@ -77,7 +79,7 @@
 {
     
     NSString *tempStr = nil;
-    if(key.length == 2)
+    /*if(key.length == 2)
     {
         tempStr = [self.EANCode substringToIndex:2];
         
@@ -86,7 +88,7 @@
     {
         tempStr = [self.EANCode substringToIndex:3];
         
-    }
+    }*/
     
     return tempStr;
 
