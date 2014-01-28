@@ -1,4 +1,4 @@
-//
+ //
 //  TUsersDeckViewController.m
 //  TudorGame
 //
@@ -8,6 +8,9 @@
 
 #import "TUsersDeckViewController.h"
 #import "User.h"
+#import "Product.h"
+#import "TCardCollectionViewCell.h"
+#import "TCardViewController.h"
 @interface TUsersDeckViewController ()
 @property(nonatomic, retain) User *user;
 @property(nonatomic, retain) NSArray *dataArray;
@@ -35,8 +38,14 @@
          
          self.dataArray = self.user.products;
          
+         [self.collectionView reloadData];
+         
+        // NSLog(@"%@",[[p.ingredients objectAtIndex:0] stringValue]);
+         
+         
      }];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -44,16 +53,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
     return self.dataArray.count;
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
+    TCardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
+    
+    
+   
+    
+    Product *currentProduct = [self.dataArray objectAtIndex:indexPath.row];
+    cell.vc.product = currentProduct;
+    
+    [cell updateCell];
+  
+   
+    
     
     return cell;
 }
 
+
+- (IBAction)backBtnTouched:(id)sender
+{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end
