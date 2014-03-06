@@ -39,61 +39,67 @@
 {
     if (self = [super init])
     {
-        self.game = nil;
         self.player = [[Player alloc] init];
-        self.player.lifePoints = [NSNumber numberWithInt:10000];
-        
-        //Nur zu testzwecken
-        NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:20];
-        
-        for(int i = 0; i <= 20;i++)
-        {
-            Product *p = [[Product alloc] init];
-            p.name = [NSString stringWithFormat:@"test %i", i ];
-            
-            
-            int rand = arc4random() % 2;
-            if(rand == 0)
-            {
-                int atk = arc4random_uniform(1000);
-                int hp = arc4random_uniform(1000);
-                int def = arc4random_uniform(3000);
-                
-                
-                p.isSpellCard = [NSNumber numberWithBool:NO];
-                p.atk = [NSNumber numberWithInt:atk];
-                p.hp = [NSNumber numberWithInt:hp];
-                p.def = [NSNumber numberWithInt:def];
-            }
-            else
-            {
-                p.isSpellCard = [NSNumber numberWithBool:YES];
-                
-                rand = arc4random() % 2;
-                if(rand == 0)
-                {
-                    p.spellValue = [NSNumber numberWithInt:-10];
-                    p.spelltype = SPELLTYPE_DECREMENT_ATK;
-                }
-                else
-                {
-                    p.spellValue = [NSNumber numberWithInt:10];
-                    p.spelltype = SPELLTYPE_INCREMENT_ATK;
-                }
-            }
-            
-            [array addObject:p];
-            
-        }
-        self.player.cardsInGame = array;
-
         [self loadCoreData];
+        self.game = nil;
+        [self resetPlayer];
         
     }
     return self;
 }
 
+-(void)resetPlayer
+{
+   
+    self.player.lifePoints = [NSNumber numberWithInt:3000];
+    
+    //Nur zu testzwecken
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:20];
+    
+    for(int i = 0; i <= 20;i++)
+    {
+        Product *p = [[Product alloc] init];
+        p.name = [NSString stringWithFormat:@"test %i", i ];
+        
+        
+        int rand = arc4random() % 2;
+        if(rand == 0)
+        {
+            int atk = arc4random_uniform(1000);
+            int hp = arc4random_uniform(1000);
+            int def = arc4random_uniform(2000);
+            
+            
+            p.isSpellCard = [NSNumber numberWithBool:NO];
+            p.atk = [NSNumber numberWithInt:atk];
+            p.hp = [NSNumber numberWithInt:hp];
+            p.def = [NSNumber numberWithInt:def];
+        }
+        else
+        {
+            p.isSpellCard = [NSNumber numberWithBool:YES];
+            
+            rand = arc4random() % 2;
+            if(rand == 0)
+            {
+                p.spellValue = [NSNumber numberWithInt:-10];
+                p.spelltype = SPELLTYPE_DECREMENT_ATK;
+            }
+            else
+            {
+                p.spellValue = [NSNumber numberWithInt:10];
+                p.spelltype = SPELLTYPE_INCREMENT_ATK;
+            }
+        }
+        
+        [array addObject:p];
+        
+    }
+    self.player.cardsInGame = array;
+    self.game = nil;
+ 
 
+}
 ///////////////////////////////////////////////////////////////////////////////
 //////// WEBSOCKET /////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
