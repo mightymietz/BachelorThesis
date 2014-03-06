@@ -104,7 +104,10 @@ dispatch_semaphore_t _animationSemaphore;
 }
 -(void)viewDidDisappear:(BOOL)animatedview
 {
-    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:GAME_UPDATED
+     object:nil];
 }
 
 
@@ -480,6 +483,7 @@ dispatch_semaphore_t _animationSemaphore;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"opponent connection lost" message:@"You win" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         alert.tag = 2;
         [alert show];
+    
     }
     
     
@@ -830,6 +834,11 @@ dispatch_semaphore_t _animationSemaphore;
                  
              }];
             
+        }
+        //BuffCard
+        else
+        {
+            completion(YES);
         }
 
     }
@@ -1920,6 +1929,10 @@ dispatch_semaphore_t _animationSemaphore;
              // [self.gameManager attackWithCard:card];
     }
     
+    if([self.gameData.opponent.lifePoints intValue] < 0)
+    {
+        self.gameData.opponent.lifePoints = [NSNumber numberWithInt:0];
+    }
     self.opponentLifepointsLabel.text = [NSString stringWithFormat:@"%@", self.gameData.opponent.lifePoints];
 
 }
@@ -2116,6 +2129,11 @@ dispatch_semaphore_t _animationSemaphore;
    
 
 
+    }
+    
+    if([self.dataManger.player.lifePoints intValue] < 0)
+    {
+        self.dataManger.player.lifePoints = [NSNumber numberWithInt:0];
     }
     self.playerLifepointsLabel.text = [NSString stringWithFormat:@"%@",  self.dataManger.player.lifePoints];
 
@@ -2399,7 +2417,7 @@ dispatch_semaphore_t _animationSemaphore;
     {
         if(buttonIndex == 0)
         {
-            
+            [self.dataManger resetPlayer];
             [self.dataManger quitRunningGame];
             
             [self popToRootView];
@@ -2408,12 +2426,13 @@ dispatch_semaphore_t _animationSemaphore;
     }
     else if(alertView.tag == 2) //oppenent aborted game
     {
+        [self.dataManger resetPlayer];
         [self.dataManger quitRunningGame];
         
         [self popToRootView];
         
     }
-    
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 -(void)popToRootView
