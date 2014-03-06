@@ -75,7 +75,8 @@
 {
     if([self.dataManager.game.gameStatus isEqualToString:GAMESTATUS_WAITING_FOR_PLAYERS])
     {
-        
+          self.opponentNameLabel.text = @"waiting for player...";
+        [self gameReadyToStart:NO];
     }
     
     
