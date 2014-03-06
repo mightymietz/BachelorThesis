@@ -84,7 +84,7 @@
     UIViewAutoresizingFlexibleLeftMargin;
     
     // Place it in the middle of the view
-    indicator.center = vc.view.center;
+    indicator.center = spinnerView.center;
     
     // Add it into the spinnerView
     [spinnerView addSubview:indicator];
