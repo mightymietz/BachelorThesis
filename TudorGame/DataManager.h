@@ -31,6 +31,7 @@
 -(void)sendAttackOpponentWithValue:(int)value;
 -(void)sendActionViaSocket:(NSString*)actionType andCard: (TOverviewCardViewController*)card;
 -(void)quitRunningGame;
+-(void)resetPlayer;
 /////////MAPPING//////////////////////////
 -(void)mapProductsFromDictionary:(NSDictionary*)productsDict;
 -(void)mapGameFromDictionary:(NSDictionary*)gameDict;
