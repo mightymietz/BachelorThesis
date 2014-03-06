@@ -8,17 +8,17 @@
 
 #import "FirstViewController.h"
 #import "Websocket.h"
-#import "User.h"
+#import "DataManager.h"
 #import "TLogInViewController.h"
 #import "AppSpecificValues.h"
 #import "SpinnerView.h"
 
 @interface FirstViewController ()
-@property(nonatomic,retain)User *user;
+@property(nonatomic,retain)DataManager *dataManager;
 @end
 
 @implementation FirstViewController
-SRWebSocket *_webSocket;
+
 
 - (void)viewDidLoad
 {
@@ -41,13 +41,19 @@ SRWebSocket *_webSocket;
      selector:@selector(userStatusChanged:)
      name: USER_STATUS_CHANGED
      object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(productsUpdated:)
+     name: PRODUCTS_UPDATED
+     object:nil];
      
-    self.user = [User sharedManager];
-    if(![self.user.status isEqualToString:USER_LOGGED_IN])
+    self.dataManager = [DataManager sharedManager];
+    if(![self.dataManager.player.status isEqualToString:USER_LOGGED_IN])
     {
         //Hat USer bereits einen Name und Passwort eingegeben, versuche mit server zu connecten
         //ansonsten pushe loginView
-        if(self.user.hasLoginNameAndPassword)
+        if(self.dataManager.hasLoginNameAndPassword)
         {
             [self connectUser];
         }
@@ -95,7 +101,7 @@ SRWebSocket *_webSocket;
                             // Dispatch work back to the main queue for your UIKit changes
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 
-                                       [self.user connectUser];
+                                       [self.dataManager connectUser];
                                 /*if([self.user.status isEqualToString:LOGIN_CORRECT])
                                 {
                                     Websocket *websocket = [Websocket sharedManager];
@@ -115,6 +121,36 @@ SRWebSocket *_webSocket;
                    
 
 }
+
+-(void)loadProducts
+{
+    
+    [SpinnerView updateLoadingStatus:self withText:@"loading products..."];
+    
+    
+    dispatch_queue_t myNewQueue = dispatch_queue_create("loadingCards", NULL);
+    
+    // Dispatch work to your queue
+    dispatch_async(myNewQueue, ^
+                   {
+                       
+                       
+                       
+                       // Dispatch work back to the main queue for your UIKit changes
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           
+                           [self.dataManager getProductsViaWebsocket];
+                           
+                           
+                       });
+                       
+                       
+                   });
+    
+    
+    
+}
+
 
 -(void)pushLoginViewController
 {
@@ -153,35 +189,52 @@ SRWebSocket *_webSocket;
 
 -(void)userStatusChanged:(NSDictionary *)userInfo
 {
-    NSString *newStatus = self.user.status;
+    NSString *newStatus = self.dataManager.player.status;
     UIAlertView *alert;
     if([newStatus isEqualToString:USERNAME_OR_PASSWORD_WRONG])
     {
-        alert = [[UIAlertView alloc] initWithTitle:@"connection failed" message:@"username and/or password wrong" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"ok", nil];
+        alert = [[UIAlertView alloc] initWithTitle:@"connection failed" message:@"username and/or password wrong" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"retype", nil];
         [alert setTag:1];
+        [SpinnerView removeSpinnerFromViewController:self];
+
 
     }
     
     if([newStatus isEqualToString:USER_ALREADY_LOGGED_IN])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"error" message:@"user already logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [SpinnerView removeSpinnerFromViewController:self];
+
 
     }
     if([newStatus isEqualToString:USER_LOGGED_IN])
     {
-        alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+      
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        [SpinnerView removeSpinnerFromViewController:self];
+
+        //[self loadProducts];
         
     }
     if([newStatus isEqualToString:USER_CONNECTION_FAIL])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"unable to connect to server" message:@"please check your internetconnection" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"retry", nil];
         [alert setTag:2];
+        [SpinnerView removeSpinnerFromViewController:self];
+
         
     }
-    [SpinnerView removeSpinnerFromViewController:self];
-
+   
     
     [alert show];
+}
+
+-(void)productsUpdated:(NSDictionary *)updatedProducts
+{
+       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+     [SpinnerView removeSpinnerFromViewController:self];
 }
 
 @end

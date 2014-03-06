@@ -8,14 +8,15 @@
 
 #import "TLobbyViewController.h"
 #import "TGameViewController.h"
-#import "User.h"
-#import "TeamMember.h"
+#import "Player.h"
+#import "Player.h"
 #import "AppSpecificValues.h"
-
+#import "SpinnerView.h"
+#import "DataManager.h"
 @interface TLobbyViewController ()
-@property (nonatomic, retain) NSArray *dataArrayTeam1;
-@property (nonatomic, retain) NSArray *dataArrayTeam2;
-@property (nonatomic, retain) Game *currentGame;
+@property (nonatomic) int countdown;
+@property (nonatomic, retain) DataManager *dataManager;
+@property (nonatomic, retain) Player *player;
 @end
 
 @implementation TLobbyViewController
@@ -23,7 +24,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -33,23 +35,23 @@
 {
     [super viewDidLoad];
     
-    [self loadGame];
-    //[self loadDataFromUser];
+  
+    self.dataManager = [DataManager sharedManager];
+    self.player = self.dataManager.player;
+    self.playerNameLabel.text = self.player.name;
 
+    self.opponentNameLabel.text = @"waiting for player...";
+
+    [self loadGame];
   
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(didReceiveRemoteNotification:)
-     name: DID_RECEIVE_REMOTE_NOTIFICATION
-     object:nil];
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
-     selector:@selector(gameUpdated:)
+     selector:@selector(gameUpdate)
      name: GAME_UPDATED
      object:nil];
 }
@@ -68,76 +70,35 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if(section == 0)
-        return self.dataArrayTeam1.count;
-    
-    return self.dataArrayTeam2.count;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    TeamMember *currentMember;
-    
-    switch (indexPath.section)
-    {
-        case 0:
-              currentMember = [self.dataArrayTeam1 objectAtIndex:indexPath.row];
-            break;
-            
-        default:
-              currentMember = [self.dataArrayTeam2 objectAtIndex:indexPath.row];
-
-            break;
-    }
-    
-    
-    cell.textLabel.text = currentMember.name;
-    return cell;
-    
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *sectionName;
-    switch (section)
-    {
-        case 0:
-            sectionName = @"Team 1";
-            break;
-        case 1:
-            sectionName = @"Team 2";
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
-}
 
 -(void)loadGame
 {
-    User *user = [User sharedManager];
-    NSArray *team1 = [user.currentGame.team1 allObjects];
-    NSArray *team2 = [user.currentGame.team2 allObjects];
-    self.currentGame = user.currentGame;
-    self.dataArrayTeam1 = team1;
-    self.dataArrayTeam2 = team2;
+    if([self.dataManager.game.gameStatus isEqualToString:GAMESTATUS_WAITING_FOR_PLAYERS])
+    {
+        
+    }
     
-     //ist game fertig zum starten (genug spieler im spiel)?
-    //dann aktivere start button
-    BOOL readyToStart = [self.currentGame.gameState isEqualToString:@"READYTOSTART"];
-   [self gameReadyToStart:readyToStart];
     
+    
+    if([self.dataManager.game.gameStatus isEqualToString:GAMESTATUS_READY_TO_START])
+    {
+        self.opponentNameLabel.text = self.dataManager.game.opponent.name;
+        [self gameReadyToStart:YES];
+    }
+    
+    
+    //ist game fertig zum starten (genug spieler im spiel)?
+    
+    if([self.dataManager.game.gameStatus isEqualToString:GAMESTATUS_RUNNING])
+    {
+        [SpinnerView loadSpinnerIntoViewController:self
+                                          withText:@"starting Game..."
+                                     andBtnTouched:@selector(abort)];
+        
+        [self startCountdown];
+        
+        
+    }
     
 }
 
@@ -147,30 +108,13 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
--(void)didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    // RemoteNotification wurde empfangen. Check ob aktueller viewcontroller sichtbar ist
-    // da gamedata geupdated wurde
-    if (self.isViewLoaded && self.view.window)
-    {
-        
-       
-        //[self loadDataFromUser];
-        [self.tableView reloadData];
 
-        
-     
-        
-    }
-}
-
--(void)gameUpdated:(NSDictionary *)userInfo
+-(void)gameUpdate
 {
-    
+
     [self loadGame];
-    [self.tableView reloadData];
-
-   
+    
+    
 }
 
 -(void)gameReadyToStart:(BOOL)ready
@@ -178,17 +122,77 @@
     self.startBtn.enabled = ready;
 }
 
+-(void)startGame
+{
+
+  
+    
+    
+    dispatch_queue_t myNewQueue = dispatch_queue_create("startingGame", NULL);
+    
+    // Dispatch work to your queue
+    dispatch_async(myNewQueue, ^
+                   {
+                       
+                       // Dispatch work back to the main queue for your UIKit changes
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           
+                           [self.dataManager startGameViaWebsocket];
+                           
+                       });
+                       
+                       
+                   });
+    
+    
+}
+
+
+-(void)abort
+{
+    [SpinnerView removeSpinnerFromViewController:self];
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqualToString:SEGUE_GAMEVIEW])
+    {
+        self.startBtn.enabled = NO;
+        [self startGame];
+    }
+    return NO;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
     if([segue.identifier isEqualToString:SEGUE_GAMEVIEW])
     {
-        User *user = [User sharedManager];
-        TGameViewController *vc = (TGameViewController*) segue.destinationViewController;
-        vc.user = user;
-        vc.currentGame = self.currentGame;
+        [SpinnerView removeSpinnerFromViewController:self];
+
+   
     }
     
+}
+
+- (void)startCountdown
+{
+    self.countdown = 5;
+    NSTimer *countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self  selector:@selector(advanceTimer:) userInfo:nil repeats:YES];
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:countdownTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)advanceTimer:(NSTimer *)timer
+{
+    self.countdown--;
+    [SpinnerView updateLoadingStatus:self withText:[NSString stringWithFormat:@"game starts in: %i", self.countdown]];
+    if (self.countdown == 0)
+    {
+        // code to stop the timer
+        [timer invalidate];
+        [self performSegueWithIdentifier:SEGUE_GAMEVIEW sender:self];
+    }
 }
 
 @end

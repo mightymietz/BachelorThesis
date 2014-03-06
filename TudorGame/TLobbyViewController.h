@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
+@interface TLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@interface TLobbyViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *startBtn;
+
+@property (weak, nonatomic) IBOutlet UIImageView *playerImage;
+@property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *opponentImage;
+@property (weak, nonatomic) IBOutlet UILabel *opponentNameLabel;
 
 - (IBAction)backBtnTouched:(UIBarButtonItem *)sender;
 @end

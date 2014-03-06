@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TUsersDeckViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewCurrentDeck;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedCardImageView;
+- (IBAction)backBtnTouched:(id)sender;
+
 
 @end

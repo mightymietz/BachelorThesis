@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FirstViewController : UIViewController
+#import "SRWebSocket.h"
+@interface FirstViewController : UIViewController <UIAlertViewDelegate>
 
 @end

@@ -7,14 +7,17 @@
 //
 
 #import "TLogInViewController.h"
-#import "User.h"
+#import "Player.h"
 #import "SHACode.h"
 #import "UserData.h"
 #import "SpinnerView.h"
 #import "Websocket.h"
+#import "DataManager.h"
+#import "AppSpecificValues.h"
 #import <CoreData/CoreData.h>
 @interface TLogInViewController ()
-@property(nonatomic, retain)User *user;
+@property(nonatomic, retain)DataManager *dataManager;
+@property(nonatomic, retain)Player *player;
 @end
 
 @implementation TLogInViewController
@@ -24,10 +27,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.user = [User sharedManager];
+    self.dataManager = [DataManager sharedManager];
+    self.player = self.dataManager.player;
 
-    self.usernameTextfield.text = self.user.username;
-    self.passwordTextfield.text = self.user.password;
+    self.usernameTextfield.text = self.player.name;
+    self.passwordTextfield.text = self.player.password;
 
     self.usernameTextfield.delegate = self;
     self.passwordTextfield.delegate = self;
@@ -71,7 +75,7 @@
                        // Dispatch work back to the main queue for your UIKit changes
                        dispatch_async(dispatch_get_main_queue(), ^{
                            
-                           [self.user connectUser];
+                           [self.dataManager connectUser];
                            /*if([self.user.status isEqualToString:LOGIN_CORRECT])
                             {
                             Websocket *websocket = [Websocket sharedManager];
@@ -99,11 +103,14 @@
     NSString *username = self.usernameTextfield.text;
     NSString *password = self.passwordTextfield.text;
   
-    [self.user saveUsername:username andPassword:password];
+    [self.dataManager saveUsername:username andPassword:password];
     
     NSLog(@"%@",self.passwordTextfield.text);
     
     [self connectUser];
+    
+    [self.usernameTextfield resignFirstResponder];
+    [self.passwordTextfield resignFirstResponder];
 
     
 }
@@ -114,7 +121,6 @@
 {
     
 
-    self.user.abortAllOperations = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -172,7 +178,7 @@
 
 -(void)userStatusChanged:(NSDictionary *)userInfo
 {
-    NSString *newStatus = self.user.status;
+    NSString *newStatus = self.player.status;
     UIAlertView *alert;
     if([newStatus isEqualToString:USERNAME_OR_PASSWORD_WRONG])
     {

@@ -8,10 +8,12 @@
 
 #import "SecondViewController.h"
 #import "AppSpecificValues.h"
-#import "User.h"
+#import "Player.h"
+#import "DataManager.h"
 #import "SpinnerView.h"
 @interface SecondViewController ()
-@property(nonatomic, retain) User *user;
+@property(nonatomic, retain) Player *player;
+@property(nonatomic, retain) DataManager *dataManager;
 @end
 
 @implementation SecondViewController
@@ -21,7 +23,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    self.user = [User sharedManager];
+    self.dataManager = [DataManager sharedManager];
+    self.player = self.dataManager.player;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -75,7 +78,7 @@
                        // Dispatch work back to the main queue for your UIKit changes
                        dispatch_async(dispatch_get_main_queue(), ^{
                            
-                           [self.user searchGameViaWebsocket];
+                           [self.dataManager searchGameViaWebsocket];
                           
                        });
                        
@@ -91,7 +94,7 @@
     
      if([identifier isEqualToString:SEGUE_QUICKGAME])
      {
-         if(self.user.currentGame == nil)
+         if(self.dataManager.game == nil)
          {
              [self searchGame];
          }
@@ -154,7 +157,7 @@
 
 -(void)updateButtons
 {
-    bool hasActiveGame = self.user.currentGame != nil;
+    bool hasActiveGame = self.dataManager.game != nil;
     
     self.abortGameBtn.enabled = hasActiveGame;
     self.resumeGameBtn.enabled = hasActiveGame;
@@ -172,7 +175,7 @@
     {
         if(buttonIndex == 0)
         {
-            [self.user quitRunningGame];
+            [self.dataManager quitRunningGame];
             
             [self updateButtons];
         }

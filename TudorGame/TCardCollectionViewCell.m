@@ -8,16 +8,41 @@
 
 #import "TCardCollectionViewCell.h"
 
+@interface TCardCollectionViewCell()
+@property (nonatomic, retain) Product *product;
+@property (nonatomic, retain) NSArray *nutritivesArray;
+@end
+
 @implementation TCardCollectionViewCell
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if (self)
+    {
         // Initialization code
     }
     return self;
 }
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        // Initialization code
+        //TCardViewController *controller = [[TCardViewController alloc] initWithNibName:@"TCardViewController" bundle:nil];
+        //self.vc = controller;
+        
+
+    }
+    return self;
+}
+
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
