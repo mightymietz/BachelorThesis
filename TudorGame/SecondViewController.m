@@ -96,6 +96,7 @@
      {
          if(self.dataManager.game == nil)
          {
+             
              [self searchGame];
          }
          else
