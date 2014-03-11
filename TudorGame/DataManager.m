@@ -12,6 +12,7 @@
 #import "SHACode.h"
 #import "Websocket.h"
 #import "AppSpecificValues.h"
+
 #import <RestKit/RestKit.h>
 #import <RestKit/RKObjectMappingOperationDataSource.h>
 
@@ -51,10 +52,10 @@
 -(void)resetPlayer
 {
    
-    self.player.lifePoints = [NSNumber numberWithInt:3000];
+    self.player.lifePoints = [NSNumber numberWithInt:2000];
     
     //Nur zu testzwecken
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:20];
+   /* NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:20];
     
     for(int i = 0; i <= 20;i++)
     {
@@ -94,8 +95,8 @@
         
         [array addObject:p];
         
-    }
-    self.player.cardsInGame = array;
+    }*/
+    self.player.cardsInGame = [NSMutableArray arrayWithArray: self.player.products];
     self.game = nil;
  
 
@@ -389,8 +390,10 @@
                                                           @"hp": @"hp",
                                                           @"def": @"def",
                                                           @"spellValue": @"spellValue",
-                                                          @"spelltype": @"spelltype",
+                                                          @"spellType": @"spelltype",
+                                                          @"spellCard": @"spellCard",
                                                           @"ingredients" : @"ingredients",
+                                                          @"isInDefensePosition" : @"isInDefensePosition",
                                                           @"position" : @"position",
                                                           @"oldPosition" :@"oldPosition"
                                                           }];
@@ -451,13 +454,14 @@
                                                           @"hp": @"hp",
                                                           @"def": @"def",
                                                           @"spellValue": @"spellValue",
-                                                          @"spelltype": @"spelltype",
-                                                          @"ingredients" : @"ingredients",
+                                                          @"spellType": @"spelltype",
+                                                         //@"ingredients" : @"ingredients",
                                                           @"isInDefensePosition" : @"isInDefensePosition",
-                                                          @"isSpellCard" : @"isSpellCard",
+                                                          @"spellCard" : @"spellCard",
                                                           @"position" :@"position",
                                                           @"oldPosition" :@"oldPosition"
                                                           }];
+    
     
 
     
@@ -467,7 +471,7 @@
                                                        
                                                         }];
     
-    [cardMapping addPropertyMapping:[RKRelationshipMapping  relationshipMappingFromKeyPath:@"product" toKeyPath:@"product" withMapping:productMapping]];
+   [cardMapping addPropertyMapping:[RKRelationshipMapping  relationshipMappingFromKeyPath:@"product" toKeyPath:@"product" withMapping:productMapping]];
 
     NSMutableDictionary *jsonDict = [NSMutableDictionary dictionary];
     RKObjectMappingOperationDataSource *dataSource = [RKObjectMappingOperationDataSource new];
@@ -513,7 +517,8 @@
                                                           @"hp": @"hp",
                                                           @"def": @"def",
                                                           @"spellValue": @"spellValue",
-                                                          @"spelltype": @"spelltype",
+                                                          @"spellType": @"spelltype",
+                                                          @"spellCard":@"spellCard",
                                                           @"ingredients" : @"ingredients",
                                                           @"position" : @"position",
                                                           @"oldPosition" :@"oldPosition"
@@ -597,7 +602,8 @@
                                                           @"hp": @"hp",
                                                           @"def": @"def",
                                                           @"spellValue": @"spellValue",
-                                                          @"spelltype": @"spelltype",
+                                                          @"spellType": @"spelltype",
+                                                          @"spellCard": @"spellCard",
                                                           @"ingredients" : @"ingredients",
                                                           @"position" : @"position",
                                                           @"oldPosition" :@"oldPosition"
@@ -609,9 +615,9 @@
                                                                                     toKeyPath:@"products"
                                                                                   withMapping:productMapping]];
     
-    [productsMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"productsInDeck"
+   /* [productsMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"products"
                                                                                     toKeyPath:@"cardsInDeck"
-                                                                                  withMapping:productMapping]];
+                                                                                  withMapping:productMapping]];*/
     
     
     
@@ -626,7 +632,7 @@
     {
         // Yay! Mapping finished successfully
        // NSLog(@"mapper: %@", [mapper representation]);
-        
+     
         // self.products= game;
         
     }
@@ -664,10 +670,10 @@
                                                           @"hp": @"hp",
                                                           @"def": @"def",
                                                           @"spellValue": @"spellValue",
-                                                          @"spelltype": @"spelltype",
+                                                          @"spellType": @"spelltype",
                                                           @"ingredients" : @"ingredients",
                                                           @"isInDefensePosition" : @"isInDefensePosition",
-                                                          @"isSpellCard" : @"isSpellCard",
+                                                          @"spellCard" : @"spellCard",
                                                           @"position" : @"position",
                                                           @"oldPosition" :@"oldPosition"
                                                           }];
@@ -746,6 +752,7 @@
     
     return NO;
 }
+
 
 
 //Function: speichert neuen usernamen und passwort
@@ -832,7 +839,7 @@
         
         self.player.name = self.coreData.name;
         self.player.password = self.coreData.password;
-        
+           
         return YES;
     }
     
