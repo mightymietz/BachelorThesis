@@ -24,9 +24,9 @@
 
 +(SpinnerView *)loadSpinnerIntoViewController:(UIViewController *)vc withText:(NSString*)text andBtnTouched:(SEL)function
 {
-    
+  
     // Create a new view with the same frame size as the superView
-    SpinnerView *spinnerView = [[SpinnerView alloc] initWithFrame:vc.view.bounds];
+    SpinnerView *spinnerView = [[SpinnerView alloc] initWithFrame:vc.view.frame];
     spinnerView.tag = 110;
     // If something's gone wrong, abort!
     if(!spinnerView){ return nil; }

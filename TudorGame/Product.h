@@ -18,12 +18,12 @@
 @property(nonatomic,copy) NSNumber *def;
 @property(nonatomic,copy) NSNumber *spellValue;
 @property(nonatomic,copy) NSString *spelltype;
-@property(nonatomic, copy) NSNumber *isSpellCard;
+@property(nonatomic, copy) NSNumber *spellCard;
 @property(nonatomic, copy) NSNumber *position;
 @property(nonatomic, copy) NSNumber *oldPosition;
 @property(nonatomic, copy) NSNumber *isInDefensePosition;
 @property(nonatomic, copy) NSString *country;
-@property(nonatomic, copy) NSSet *ingredients;
+@property(nonatomic, copy) NSArray *ingredients;
 @property(nonatomic, copy) NSSet *nutritives;
 @property(nonatomic, retain) NSArray *sortedNutritives;
 
