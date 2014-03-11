@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dsg-YW-5fH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rKA-e3-fts" customClass="TMenuButton">
@@ -45,7 +45,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UEv-Xt-nYd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c9q-Z4-8nv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cjj-Qo-Hhc" customClass="TMenuButton">
@@ -101,12 +101,15 @@
                         <viewControllerLayoutGuide type="bottom" id="2cL-pd-1kh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I9n-e7-8BF">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khi-Bd-f35">
-                                <rect key="frame" x="0.0" y="20" width="568" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khi-Bd-f35">
+                                <rect key="frame" x="0.0" y="20" width="480" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="568" id="Shx-tq-QjL"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Deck" id="MwF-kS-Jdf">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="d99-05-THU">
@@ -117,10 +120,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CardCell" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="49V-uE-bCk" userLabel="Collection View AllCards">
-                                <rect key="frame" x="7" y="73" width="553" height="0.0"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="CardCell" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="49V-uE-bCk" userLabel="Collection View AllCards">
+                                <rect key="frame" x="8" y="227" width="465" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="553" id="4mc-Tw-pHw"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yvT-Ry-m6j">
                                     <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -129,11 +136,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="btJ-P0-ZYe" customClass="TCardCollectionViewCell">
+                                        <rect key="frame" x="5" y="6" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WpP-pe-VWO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -148,12 +158,17 @@
                                 <connections>
                                     <outlet property="dataSource" destination="vlB-mh-6WS" id="ehA-Rj-r7Y"/>
                                     <outlet property="delegate" destination="vlB-mh-6WS" id="8tL-7H-q5S"/>
+                                    <outletCollection property="gestureRecognizers" destination="mlD-CL-1lz" appends="YES" id="v74-v2-KQv"/>
                                 </connections>
                             </collectionView>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CardCell" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-V9-3Kd" userLabel="Collection View Current Deck">
-                                <rect key="frame" x="153" y="283" width="407" height="22"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="CardCell" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-V9-3Kd" userLabel="Collection View Current Deck">
+                                <rect key="frame" x="8" y="64" width="465" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="553" id="Zte-IN-hpt"/>
+                                    <constraint firstAttribute="height" constant="155" id="zxz-rm-6rY"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="SpA-Iv-g2K">
                                     <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -186,21 +201,42 @@
                                     <outlet property="delegate" destination="vlB-mh-6WS" id="yuQ-Zn-zdt"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9O-Gf-buf">
-                                <rect key="frame" x="7" y="283" width="138" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2vU-V9-3Kd" firstAttribute="top" secondItem="khi-Bd-f35" secondAttribute="bottom" id="3Wf-0i-Tv7"/>
+                            <constraint firstItem="2vU-V9-3Kd" firstAttribute="centerX" secondItem="khi-Bd-f35" secondAttribute="centerX" id="E1t-CZ-o3i"/>
+                            <constraint firstItem="2vU-V9-3Kd" firstAttribute="trailing" secondItem="49V-uE-bCk" secondAttribute="trailing" id="KCI-Tt-H4n"/>
+                            <constraint firstItem="2vU-V9-3Kd" firstAttribute="leading" secondItem="I9n-e7-8BF" secondAttribute="leading" constant="8" id="P6m-UI-EDG"/>
+                            <constraint firstItem="2cL-pd-1kh" firstAttribute="top" secondItem="49V-uE-bCk" secondAttribute="bottom" constant="11" id="Y93-fr-Ebc"/>
+                            <constraint firstItem="khi-Bd-f35" firstAttribute="leading" secondItem="I9n-e7-8BF" secondAttribute="leading" id="YQj-Am-fgq"/>
+                            <constraint firstItem="49V-uE-bCk" firstAttribute="top" secondItem="2vU-V9-3Kd" secondAttribute="bottom" constant="8" id="gPP-xI-jL8"/>
+                            <constraint firstItem="khi-Bd-f35" firstAttribute="top" secondItem="rli-Gg-bXy" secondAttribute="bottom" id="k3J-Sc-IbQ"/>
+                            <constraint firstItem="2vU-V9-3Kd" firstAttribute="centerX" secondItem="I9n-e7-8BF" secondAttribute="centerX" id="sy3-k7-0eZ"/>
+                            <constraint firstItem="49V-uE-bCk" firstAttribute="leading" secondItem="I9n-e7-8BF" secondAttribute="leading" constant="8" id="vcq-dO-6ZW"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2QR-C2-ka8" appends="YES" id="efM-ia-ooB"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="49V-uE-bCk" id="8wE-rf-eTw"/>
                         <outlet property="collectionViewCurrentDeck" destination="2vU-V9-3Kd" id="RKY-Yr-uen"/>
-                        <outlet property="selectedCardImageView" destination="P9O-Gf-buf" id="v7q-fL-Kb1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbC-sW-V5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2QR-C2-ka8">
+                    <connections>
+                        <action selector="handleSingleTap:" destination="vlB-mh-6WS" id="3Rf-by-LpB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="mlD-CL-1lz">
+                    <connections>
+                        <action selector="handlePan:" destination="vlB-mh-6WS" id="K3t-4Z-MSe"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1217" y="-562"/>
         </scene>
@@ -213,7 +249,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hAa-0e-nqj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vau-y5-box">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfS-tb-77k">
@@ -230,7 +266,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="97z-hK-tSe">
-                                <rect key="frame" x="0.0" y="136" width="320" height="432"/>
+                                <rect key="frame" x="0.0" y="136" width="320" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="23" minY="0.0" maxX="23" maxY="0.0"/>
@@ -296,7 +332,7 @@
                         <viewControllerLayoutGuide type="bottom" id="k5f-Lh-ADO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NZl-9m-HKR">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FS-Wy-AWm" userLabel="ContentView">
@@ -352,7 +388,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hql-ra-JGy">
-                                <rect key="frame" x="0.0" y="20" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="480" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="login" id="AeH-oM-BpN">
@@ -396,11 +432,11 @@
                         <viewControllerLayoutGuide type="bottom" id="sya-Fz-NlI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Ysw-2e-PFe" customClass="TMenuButton">
-                                <rect key="frame" x="141" y="115" width="90" height="90"/>
+                                <rect key="frame" x="97" y="115" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Eb3-LV-Qvn"/>
@@ -414,7 +450,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Pf-b2-mOa" customClass="TMenuButton">
-                                <rect key="frame" x="239" y="115" width="90" height="90"/>
+                                <rect key="frame" x="195" y="115" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="4qi-7o-wdq"/>
@@ -429,7 +465,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="50g-o6-9rg" customClass="TMenuButton">
-                                <rect key="frame" x="337" y="115" width="90" height="90"/>
+                                <rect key="frame" x="293" y="115" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="DmR-vv-0z0"/>
@@ -472,16 +508,12 @@
                         <viewControllerLayoutGuide type="bottom" id="tCh-gb-Fei"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8EA-Mc-TzA">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmS-6k-iuS">
-                                <rect key="frame" x="20" y="9" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmS-6k-iuS">
+                                <rect key="frame" x="382" y="31" width="46" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5HI-Oe-rsd"/>
-                                    <constraint firstAttribute="width" constant="46" id="wUG-vP-pQH"/>
-                                </constraints>
                                 <state key="normal" title="quit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -489,305 +521,181 @@
                                     <action selector="backBtnTouched:" destination="Z5M-VS-edW" eventType="touchUpInside" id="knS-aa-eSX"/>
                                 </connections>
                             </button>
-                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="kvf-oa-3qE" customClass="TCardField">
-                                <rect key="frame" x="177" y="172" width="60" height="60"/>
+                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="kvf-oa-3qE" customClass="TCardField">
+                                <rect key="frame" x="99" y="172" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Xpb-qW-s23"/>
-                                    <constraint firstAttribute="height" constant="60" id="eSQ-TF-SwI"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="NKr-sJ-ooY" appends="YES" id="vSd-Ib-9S5"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-vA-qQs" customClass="TCardField">
-                                <rect key="frame" x="245" y="172" width="60" height="60"/>
+                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-vA-qQs" customClass="TCardField">
+                                <rect key="frame" x="177" y="172" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="YPE-Nz-Hny"/>
-                                    <constraint firstAttribute="height" constant="60" id="iP2-fx-0he"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="xAY-8H-Tgy" appends="YES" id="DBN-2i-UF3"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="zc8-kP-Gys" customClass="TCardField">
-                                <rect key="frame" x="313" y="172" width="60" height="60"/>
+                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="zc8-kP-Gys" customClass="TCardField">
+                                <rect key="frame" x="255" y="172" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="6Bv-o1-M3P"/>
-                                    <constraint firstAttribute="height" constant="60" id="h8y-kY-AAP"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="xDy-sX-Y2g" appends="YES" id="PnK-Ub-MgR"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="ymB-JD-ntN" customClass="TCardField">
-                                <rect key="frame" x="488" y="62" width="60" height="60"/>
+                            <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="ymB-JD-ntN" customClass="TCardField">
+                                <rect key="frame" x="370" y="52" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="PJH-yy-1b1"/>
-                                    <constraint firstAttribute="height" constant="60" id="h0E-Pz-dA8"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Lk4-q8-5fb" appends="YES" id="CDX-Ms-eGG"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="wtu-Zq-OsC" customClass="TCardField">
-                                <rect key="frame" x="488" y="130" width="60" height="60"/>
+                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="wtu-Zq-OsC" customClass="TCardField">
+                                <rect key="frame" x="370" y="127" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Jtl-1m-jG3"/>
-                                    <constraint firstAttribute="height" constant="60" id="Lhb-yn-vjS"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ycE-DF-Kli" appends="YES" id="wXV-oo-Ryf"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-Rp-sma" customClass="TCardField">
-                                <rect key="frame" x="488" y="198" width="60" height="60"/>
+                            <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-Rp-sma" customClass="TCardField">
+                                <rect key="frame" x="370" y="201" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Pw8-OK-Oi2"/>
-                                    <constraint firstAttribute="width" constant="60" id="xcP-lv-DG4"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="J0U-3P-4RM" appends="YES" id="rQV-j8-zld"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Vn-ke-raz" customClass="TCardField">
-                                <rect key="frame" x="20" y="62" width="60" height="60"/>
+                            <imageView tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Vn-ke-raz" customClass="TCardField">
+                                <rect key="frame" x="15" y="20" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="3hp-CS-A8m"/>
-                                    <constraint firstAttribute="width" constant="60" id="jch-Ef-wXJ"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="17" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Td-E1-6YH" customClass="TCardField">
-                                <rect key="frame" x="20" y="130" width="60" height="60"/>
+                            <imageView tag="17" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Td-E1-6YH" customClass="TCardField">
+                                <rect key="frame" x="15" y="46" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Ieg-45-2FH"/>
-                                    <constraint firstAttribute="width" constant="60" id="MKK-rz-4h1"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="18" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-DC-dUR" customClass="TCardField">
-                                <rect key="frame" x="20" y="198" width="60" height="60"/>
+                            <imageView tag="18" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-DC-dUR" customClass="TCardField">
+                                <rect key="frame" x="15" y="74" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="fxw-nz-nN9"/>
-                                    <constraint firstAttribute="width" constant="60" id="h0K-UK-XlJ"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-DJ-ALT" customClass="TCardField">
-                                <rect key="frame" x="177" y="240" width="60" height="60"/>
+                            <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-DJ-ALT" customClass="TCardField">
+                                <rect key="frame" x="99" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="d33-NG-i0a"/>
-                                    <constraint firstAttribute="width" constant="60" id="dhK-ut-7XR"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9xw-qq-fTl" appends="YES" id="aZC-Gg-cY9"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="RAd-Ts-Tm5" customClass="TCardField">
-                                <rect key="frame" x="245" y="240" width="60" height="60"/>
+                            <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="RAd-Ts-Tm5" customClass="TCardField">
+                                <rect key="frame" x="177" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="KiA-te-DbE"/>
-                                    <constraint firstAttribute="height" constant="60" id="VIM-Qw-3rC"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="iPh-Vy-23j" appends="YES" id="IUb-5g-HkT"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-sM-LgD" customClass="TCardField">
-                                <rect key="frame" x="313" y="240" width="60" height="60"/>
+                            <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-sM-LgD" customClass="TCardField">
+                                <rect key="frame" x="255" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="08h-aL-VNu"/>
-                                    <constraint firstAttribute="width" constant="60" id="tVq-Fj-HuZ"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="MrF-LR-lLu" appends="YES" id="khj-Ap-6VS"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-6c-23g" customClass="TCardField">
-                                <rect key="frame" x="177" y="20" width="60" height="60"/>
+                            <imageView tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-6c-23g" customClass="TCardField">
+                                <rect key="frame" x="99" y="20" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="h67-eK-I3U"/>
-                                    <constraint firstAttribute="width" constant="60" id="qCf-E1-zxh"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-QQ-jxR" customClass="TCardField">
-                                <rect key="frame" x="245" y="20" width="60" height="60"/>
+                            <imageView tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-QQ-jxR" customClass="TCardField">
+                                <rect key="frame" x="177" y="20" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="AJW-JM-8e1"/>
-                                    <constraint firstAttribute="width" constant="60" id="akV-9v-PpV"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-uY-ghM" customClass="TCardField">
-                                <rect key="frame" x="313" y="20" width="60" height="60"/>
+                            <imageView tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-uY-ghM" customClass="TCardField">
+                                <rect key="frame" x="255" y="20" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="CEJ-wK-TyP"/>
-                                    <constraint firstAttribute="height" constant="60" id="Vgs-4d-7C6"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdN-Ln-RGL" customClass="TCardField">
-                                <rect key="frame" x="177" y="88" width="60" height="60"/>
+                            <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdN-Ln-RGL" customClass="TCardField">
+                                <rect key="frame" x="99" y="94" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2d8-Ub-aAT"/>
-                                    <constraint firstAttribute="width" constant="60" id="lcC-zb-gKH"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="VmH-qR-f71" customClass="TCardField">
-                                <rect key="frame" x="245" y="88" width="60" height="60"/>
+                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="VmH-qR-f71" customClass="TCardField">
+                                <rect key="frame" x="177" y="94" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="6U7-rI-0Ci"/>
-                                    <constraint firstAttribute="height" constant="60" id="Sgf-yC-pRS"/>
-                                </constraints>
                             </imageView>
-                            <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEz-9h-0vT" customClass="TCardField">
-                                <rect key="frame" x="313" y="88" width="60" height="60"/>
+                            <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEz-9h-0vT" customClass="TCardField">
+                                <rect key="frame" x="255" y="94" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="aTR-yA-2sf"/>
-                                    <constraint firstAttribute="width" constant="60" id="fSy-uZ-G9d"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-jR-DAd">
-                                <rect key="frame" x="111" y="20" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iv3-jR-DAd">
+                                <rect key="frame" x="46" y="20" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Oum-sV-dmQ"/>
-                                    <constraint firstAttribute="height" constant="40" id="XaH-dT-hea"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nOA-ip-hLs">
-                                <rect key="frame" x="111" y="260" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nOA-ip-hLs">
+                                <rect key="frame" x="46" y="260" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="UGT-Vs-57P"/>
-                                    <constraint firstAttribute="width" constant="40" id="ex1-tG-lxU"/>
-                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="emd-7G-Wvi" customClass="TCardField">
-                                <rect key="frame" x="111" y="108" width="40" height="40"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="emd-7G-Wvi" customClass="TCardField">
+                                <rect key="frame" x="46" y="109" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WgT-ej-zSt"/>
-                                    <constraint firstAttribute="width" constant="40" id="cTJ-cy-hJd"/>
-                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="6RO-vh-gmb" customClass="TCardField">
-                                <rect key="frame" x="111" y="172" width="40" height="40"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyField.png" translatesAutoresizingMaskIntoConstraints="NO" id="6RO-vh-gmb" customClass="TCardField">
+                                <rect key="frame" x="46" y="172" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="jPl-nE-QWi"/>
-                                    <constraint firstAttribute="height" constant="40" id="o8s-O9-ePl"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cardback.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="d52-gx-xDv">
-                                <rect key="frame" x="119" y="70" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="d52-gx-xDv">
+                                <rect key="frame" x="54" y="71" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="1Uq-Go-6id"/>
-                                    <constraint firstAttribute="height" constant="25" id="WpQ-WG-67R"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cardback.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="55w-Dn-HVW">
-                                <rect key="frame" x="119" y="227" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="55w-Dn-HVW">
+                                <rect key="frame" x="54" y="223" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="mgG-bF-w8m"/>
-                                    <constraint firstAttribute="height" constant="25" id="q03-NG-rgo"/>
-                                </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrr-cy-uIz">
-                                <rect key="frame" x="119" y="72" width="25" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrr-cy-uIz">
+                                <rect key="frame" x="54" y="74" width="27" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Rhg-6a-nci"/>
-                                    <constraint firstAttribute="height" constant="21" id="YI1-Bg-jXE"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkC-OS-6FK">
-                                <rect key="frame" x="119" y="229" width="25" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkC-OS-6FK">
+                                <rect key="frame" x="54" y="225" width="25" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="EB4-tN-R9w"/>
-                                    <constraint firstAttribute="width" constant="25" id="YrL-fV-tvR"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYL-yO-aZd">
-                                <rect key="frame" x="111" y="288" width="40" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYL-yO-aZd">
+                                <rect key="frame" x="46" y="288" width="40" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="OVh-GT-UF7"/>
-                                    <constraint firstAttribute="width" constant="40" id="n02-dN-li5"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-kc-vcc">
-                                <rect key="frame" x="111" y="48" width="40" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-kc-vcc">
+                                <rect key="frame" x="46" y="48" width="40" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="3fD-8m-F7x"/>
-                                    <constraint firstAttribute="width" constant="40" id="ry4-5s-kxf"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbg-LL-uxq">
-                                <rect key="frame" x="108" y="9" width="48" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbg-LL-uxq">
+                                <rect key="frame" x="43" y="9" width="48" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="WOJ-FD-dqP"/>
-                                    <constraint firstAttribute="height" constant="21" id="Wv4-tX-A6K"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-CN-UBz">
-                                <rect key="frame" x="108" y="250" width="48" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-CN-UBz">
+                                <rect key="frame" x="43" y="250" width="48" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="oLa-1Q-7g2"/>
-                                    <constraint firstAttribute="width" constant="48" id="xPz-cr-4m9"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi1-7q-xT6">
-                                <rect key="frame" x="495" y="279" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi1-7q-xT6">
+                                <rect key="frame" x="382" y="279" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OMT-1Q-tOB"/>
-                                    <constraint firstAttribute="width" constant="46" id="w7W-yw-BVf"/>
-                                </constraints>
                                 <state key="normal" title="Ready">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -798,12 +706,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ymB-JD-ntN" secondAttribute="trailing" constant="20" id="2ft-wA-fTm"/>
-                            <constraint firstAttribute="trailing" secondItem="pi1-7q-xT6" secondAttribute="trailing" constant="27" id="3rg-04-OUG"/>
-                            <constraint firstAttribute="trailing" secondItem="i4i-Rp-sma" secondAttribute="trailing" constant="20" id="Xhy-ow-EC1"/>
-                            <constraint firstAttribute="trailing" secondItem="wtu-Zq-OsC" secondAttribute="trailing" constant="20" id="evs-d0-FBF"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="yN9-aV-kMb" appends="YES" id="vbE-VM-oU2"/>
@@ -906,7 +808,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2010" y="479"/>
+            <point key="canvasLocation" x="2066" y="494"/>
         </scene>
         <!--Lobby View Controller-->
         <scene sceneID="m2y-Mr-Dvo">
@@ -917,11 +819,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Uuc-w0-wdf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6g7-8T-sA2">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed7-Vz-ujv">
-                                <rect key="frame" x="0.0" y="20" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="480" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="568" id="MIi-e0-XMZ"/>
@@ -942,7 +844,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Mxc-si-gcZ">
-                                <rect key="frame" x="64" y="83" width="150" height="171"/>
+                                <rect key="frame" x="20" y="83" width="150" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="ZQl-dk-4Os"/>
@@ -950,7 +852,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="C52-GF-iem">
-                                <rect key="frame" x="354" y="83" width="150" height="171"/>
+                                <rect key="frame" x="310" y="83" width="150" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="171" id="OPb-wC-dr7"/>
@@ -958,7 +860,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeI-MQ-zne">
-                                <rect key="frame" x="249" y="168" width="71" height="32"/>
+                                <rect key="frame" x="205" y="168" width="71" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="mtU-jS-naP"/>
@@ -969,7 +871,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXz-p6-OBw">
-                                <rect key="frame" x="64" y="262" width="150" height="21"/>
+                                <rect key="frame" x="20" y="262" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="GHe-6o-WAD"/>
@@ -979,7 +881,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1u-dL-7WW">
-                                <rect key="frame" x="354" y="262" width="150" height="21"/>
+                                <rect key="frame" x="310" y="262" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9hB-Mn-8sU"/>
@@ -1047,7 +949,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="fH0-gF-AGo"/>
