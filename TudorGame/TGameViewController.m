@@ -265,12 +265,7 @@ dispatch_semaphore_t _animationSemaphore;
                     break;
             }
             
-            [self.opponentField1 showEmptyField:YES];
-            [self.opponentField2 showEmptyField:YES];
-            [self.opponentField3 showEmptyField:YES];
-            [self.opponentField4 showEmptyField:YES];
-            [self.opponentField5 showEmptyField:YES];
-            [self.opponentField6 showEmptyField:YES];
+           
             
             
            completion(YES);
@@ -321,6 +316,7 @@ dispatch_semaphore_t _animationSemaphore;
             turnedCard.product = gameData.playedCard.product;
             
             [self turnCard:turnedCard];
+            [turnedCard showEmptyField:YES];
             completion(YES);
             
         
@@ -2204,6 +2200,10 @@ dispatch_semaphore_t _animationSemaphore;
 
 -(void)attackCards
 {
+    
+   
+    [self showCards];
+    
     [self playerSpellCard:self.playerField4 andCompletition:^(BOOL finished)
      {
          [self animatePlayerAttackWithCard:self.playerField1 andCompletition:^(BOOL finished)
@@ -2954,22 +2954,27 @@ dispatch_semaphore_t _animationSemaphore;
 #pragma mark PLAYER_ACTIONS
 -(void)fillPlayersHand
 {
-    if(self.dataManger.player.cardsInGame.count > 0)
-    {
+    
         for(TCardField *c in self.view.subviews)
         {
-            if(c == self.playerHand1 || c == self.playerHand2 || c == self.playerHand3)
+            if(self.dataManger.player.cardsInGame.count > 0)
             {
-                if(c.isTaken == NO)
+                if(c == self.playerHand1 || c == self.playerHand2 || c == self.playerHand3)
                 {
-                    [c storeCardWithCardController:[self.gameManager takeNextCard:self.dataManger.player]];
-                    [self.gameManager nextCard:c];
-                    
+                    if(c != nil && c.isTaken == NO)
+                    {
+                        
+                        [c storeCardWithCardController:[self.gameManager takeNextCard:self.dataManger.player]];
+                        
+                        
+                            [self.gameManager nextCard:c];
+                        
+                    }
                 }
             }
         }
         self.isInOperation = NO;
-    }
+    
     self.isInOperation = NO;
     self.playerDeckCounterLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataManger.player.cardsInGame.count];
     
@@ -3015,6 +3020,22 @@ dispatch_semaphore_t _animationSemaphore;
 ///////////////////////////////////////////////////
 #pragma mark BACKGROUND_ACTIONS
 
+-(void)showCards
+{
+    if(self.opponentField1.isTaken)
+       [self.opponentField1 showEmptyField:NO];
+    if(self.opponentField2.isTaken)
+        [self.opponentField2 showEmptyField:NO];
+    if(self.opponentField3.isTaken)
+        [self.opponentField3 showEmptyField:NO];
+    if(self.opponentField4.isTaken)
+        [self.opponentField4 showEmptyField:NO];
+    if(self.opponentField5.isTaken)
+        [self.opponentField5 showEmptyField:NO];
+    if(self.opponentField6.isTaken)
+        [self.opponentField6 showEmptyField:NO];
+    
+}
 -(void)activateUserActions:(BOOL)active
 {
     [self.playerHand1 enableInteraction:active];
