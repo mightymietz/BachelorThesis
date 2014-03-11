@@ -183,32 +183,52 @@
     if([newStatus isEqualToString:USERNAME_OR_PASSWORD_WRONG])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"connection failed" message:@"username and/or password wrong" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"ok", nil];
-        [alert setTag:1];
-        
-    }
+    
+           }
     
     if([newStatus isEqualToString:USER_ALREADY_LOGGED_IN])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"error" message:@"user already logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        
+        [SpinnerView removeSpinnerFromViewController:self];
     }
     if([newStatus isEqualToString:USER_LOGGED_IN])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"successfull" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert setTag:1];
+        [SpinnerView removeSpinnerFromViewController:self];
         
-        [self dismissViewControllerAnimated:NO completion:nil];
         
     }
     if([newStatus isEqualToString:USER_CONNECTION_FAIL])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"unable to connect to server" message:@"please check your internetconnection" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:@"retry", nil];
         [alert setTag:2];
-        
+        [SpinnerView removeSpinnerFromViewController:self];
     }
-    [SpinnerView removeSpinnerFromViewController:self];
+    
     
     
     [alert show];
 }
+
+//////////////////////////////////
+////// UIAlertView delegate//////
+/////////////////////////////////
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 1)
+    {
+        if(buttonIndex == 0)    //ok button
+        {
+            
+            [self dismissViewControllerAnimated:NO completion:nil];
+
+    
+        }
+    }
+    
+}
+
 
 @end

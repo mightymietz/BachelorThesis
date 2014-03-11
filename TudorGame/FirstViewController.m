@@ -72,6 +72,11 @@
      removeObserver:self
      name:USER_STATUS_CHANGED
      object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:PRODUCTS_UPDATED
+     object:nil];
 }
 
 
@@ -127,26 +132,33 @@
     
     [SpinnerView updateLoadingStatus:self withText:@"loading products..."];
     
-    
-    dispatch_queue_t myNewQueue = dispatch_queue_create("loadingCards", NULL);
-    
-    // Dispatch work to your queue
-    dispatch_async(myNewQueue, ^
-                   {
-                       
-                       
-                       
-                       // Dispatch work back to the main queue for your UIKit changes
-                       dispatch_async(dispatch_get_main_queue(), ^{
+    if(self.dataManager.player.products == nil)
+    {
+        dispatch_queue_t myNewQueue = dispatch_queue_create("loadingCards", NULL);
+        
+        // Dispatch work to your queue
+        dispatch_async(myNewQueue, ^
+                       {
                            
-                           [self.dataManager getProductsViaWebsocket];
+                           
+                           
+                           // Dispatch work back to the main queue for your UIKit changes
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               
+                               [self.dataManager getProductsViaWebsocket];
+                               
+                               
+                           });
                            
                            
                        });
-                       
-                       
-                   });
-    
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        [SpinnerView removeSpinnerFromViewController:self];
+    }
     
     
 }
@@ -210,11 +222,11 @@
     if([newStatus isEqualToString:USER_LOGGED_IN])
     {
       
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alert show];
-        [SpinnerView removeSpinnerFromViewController:self];
+        [SpinnerView removeSpinnerFromViewController:self];*/
 
-        //[self loadProducts];
+        [self loadProducts];
         
     }
     if([newStatus isEqualToString:USER_CONNECTION_FAIL])
