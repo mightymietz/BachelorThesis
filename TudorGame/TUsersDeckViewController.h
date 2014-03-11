@@ -15,4 +15,8 @@
 - (IBAction)backBtnTouched:(id)sender;
 
 
+//Handle Tap
+-(IBAction)handleSingleTap:(UITapGestureRecognizer*)recognizer;
+//Handle Pan with HandCards
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @end
