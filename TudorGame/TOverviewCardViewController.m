@@ -65,19 +65,58 @@
     
     
     
-    if([self.product.isSpellCard boolValue] == YES)
+    if([self.product.spellCard boolValue] == YES)
     {
         self.view.backgroundColor = [UIColor greenColor];
 
         
         if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_ATK] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_ATK])
         {
-            self.attackAndDefenseImageView.image = [UIImage imageNamed:@"sword.png"];
-            self.attackAndDefenseLabel.text =[NSString stringWithFormat:@"%@%%", self.product.spellValue];
-            self.lifepointsLabel.text = @"ATK";
+            //self.attackImageView.image = [UIImage imageNamed:@"sword.png"];
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"ATK: %@%%",self.product.spellValue];
             
             //Ist es Buff oder Debuff? Ändere das Bild entsprechend
-            if([self.product.spellValue intValue] >= 0)
+            if([self.product.spellValue intValue] > 0)
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
+            }
+            else
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowdown.png"];
+                
+            }
+            
+        }
+        else if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_HP] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_HP])
+        {
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"HP: %@%%",self.product.spellValue];
+
+            
+            //Ist es Buff oder Debuff? Ändere das Bild entsprechend
+            if([self.product.spellValue intValue] > 0)
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
+            }
+            else
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowdown.png"];
+                
+            }
+            
+        }
+        else if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_DEF] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_DEF])
+        {
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"DEF: %@%%",self.product.spellValue];
+
+            
+            //Ist es Buff oder Debuff? Ändere das Bild entsprechend
+            if([self.product.spellValue intValue] > 0)
             {
                 self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
             }
@@ -93,16 +132,19 @@
     {
         self.view.backgroundColor = [UIColor blackColor];
         
-        if([self.product.isInDefensePosition boolValue])
+         self.defenseLabel.text =[NSString stringWithFormat:@"%@", self.product.def];
+         self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
+        self.lifepointsLabel.text =[NSString stringWithFormat:@"%@", self.product.hp];
+        /*if([self.product.isInDefensePosition boolValue])
         {
-            self.attackAndDefenseLabel.text =[NSString stringWithFormat:@"%@", self.product.def];
+            self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.def];
 
         }
         else
         {
-            self.attackAndDefenseLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
+            self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
         }
-        self.lifepointsLabel.text =[NSString stringWithFormat:@"%@", self.product.hp];
+        self.lifepointsLabel.text =[NSString stringWithFormat:@"%@", self.product.hp];*/
         
         
     }
@@ -126,18 +168,18 @@
 
 -(void)defenseMode
 {
-    self.attackAndDefenseLabel.text = [NSString stringWithFormat:@"%@", self.product.def];
-    self.attackAndDefenseImageView.image = [UIImage imageNamed:@"shield.png"];
+    //self.attackLabel.text = [NSString stringWithFormat:@"%@", self.product.def];
+    //self.attackImageView.image = [UIImage imageNamed:@"shield.png"];
     self.product.isInDefensePosition = [NSNumber numberWithBool:YES];
 
 
 }
 -(void)attackMode
 {
-    if([self.product.isSpellCard boolValue] == NO)
+    if([self.product.spellCard boolValue] == NO)
     {
-        self.attackAndDefenseLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
-        self.attackAndDefenseImageView.image = [UIImage imageNamed:@"sword.png"];
+       // self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
+        //self.attackImageView.image = [UIImage imageNamed:@"sword.png"];
         self.product.isInDefensePosition = [NSNumber numberWithBool:NO];
 
     }

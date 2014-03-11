@@ -13,10 +13,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *EANLabel;
-@property (weak, nonatomic) IBOutlet UILabel *attackAndDefenseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *attackLabel;
+@property (weak, nonatomic) IBOutlet UILabel *defenseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lifepointsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIImageView *attackAndDefenseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *attackImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *defenseImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *lifePointsImageView;
 @property(nonatomic,retain) Product *product;
 
