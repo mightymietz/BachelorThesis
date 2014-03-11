@@ -37,7 +37,7 @@
     self.isTaken = YES;
     self.isAssigned = NO;
     self.isHidden = NO;
-    self.isSpellCard = [self.product.isSpellCard boolValue];
+    self.isSpellCard = [self.product.spellCard boolValue];
  
    
     self.atk = [self.product.atk intValue];
@@ -135,6 +135,7 @@
     self.isInDefensePosition = YES;
     [self.ov defenseMode];
     self.snapshot = [self.ov snapshotView];
+    
     self.transform = CGAffineTransformMakeRotation(90 * M_PI/180);
     self.image = self.snapshot;
 

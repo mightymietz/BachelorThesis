@@ -39,8 +39,8 @@
     self.player = self.dataManager.player;
     self.game = self.dataManager.game;
     self.opponent = self.dataManager.game.opponent;
-    
-    self.player.cardsInGame = [self shuffleProducts:self.player.cardsInGame];
+    self.player.cardsInDeck =[NSMutableArray arrayWithArray: self.player.products];
+    self.player.cardsInGame = [self shuffleProducts:self.player.cardsInDeck];
 
 
 
@@ -77,7 +77,7 @@
 -(TOverviewCardViewController*)takeNextCard:(Player*)player
 {
     
-    TOverviewCardViewController *nextCard;
+    TOverviewCardViewController *nextCard = nil;
 
     if(player.cardsInGame.count > 0)
     {
