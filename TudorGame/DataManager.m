@@ -43,6 +43,7 @@
         self.player = [[Player alloc] init];
         [self loadCoreData];
         self.game = nil;
+        
         [self resetPlayer];
         
     }
