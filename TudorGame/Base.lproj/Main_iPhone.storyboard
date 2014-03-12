@@ -165,6 +165,7 @@
                                 <rect key="frame" x="8" y="64" width="465" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="553" id="Zte-IN-hpt"/>
                                     <constraint firstAttribute="height" constant="155" id="zxz-rm-6rY"/>
@@ -199,6 +200,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="vlB-mh-6WS" id="039-dQ-0eF"/>
                                     <outlet property="delegate" destination="vlB-mh-6WS" id="yuQ-Zn-zdt"/>
+                                    <outletCollection property="gestureRecognizers" destination="Avd-dp-FT5" appends="YES" id="rrg-bb-Azc"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -224,6 +226,7 @@
                     <connections>
                         <outlet property="collectionView" destination="49V-uE-bCk" id="8wE-rf-eTw"/>
                         <outlet property="collectionViewCurrentDeck" destination="2vU-V9-3Kd" id="RKY-Yr-uen"/>
+                        <outlet property="panRecognizer" destination="mlD-CL-1lz" id="bzL-yy-PML"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbC-sW-V5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,7 +237,14 @@
                 </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="mlD-CL-1lz">
                     <connections>
-                        <action selector="handlePan:" destination="vlB-mh-6WS" id="K3t-4Z-MSe"/>
+                        <action selector="handlePanAllCards:" destination="vlB-mh-6WS" id="jMf-E2-foa"/>
+                        <outlet property="delegate" destination="vlB-mh-6WS" id="YgG-3q-30d"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Avd-dp-FT5">
+                    <connections>
+                        <action selector="handlePanCurrentDeck:" destination="vlB-mh-6WS" id="S8t-9u-dE8"/>
+                        <outlet property="delegate" destination="vlB-mh-6WS" id="6R0-0K-vDv"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
