@@ -18,12 +18,11 @@
 
 
 @interface TUsersDeckViewController ()
-@property(nonatomic, retain) Player *player;
 @property(nonatomic, retain) DataManager *dataManager;
-@property(nonatomic, retain) NSMutableArray *dataArrayAllCards;
-@property(nonatomic, retain) NSMutableArray *dataArrayCurrentCardDeck;
 @property(nonatomic, retain) UIImageView *cardDublicate;
 @property(nonatomic, retain)  Product *productTouched;
+@property(nonatomic, retain)  UIImageView *cardDetailView;
+@property(nonatomic) BOOL closeDetailView;
 
 @end
 
@@ -43,21 +42,9 @@
     [super viewDidLoad];
     
     self.dataManager = [DataManager sharedManager];
-    self.player = self.dataManager.player;
-    
-    if(self.player.cardsInDeck == nil)
-    {
-        self.player.cardsInDeck =  [NSMutableArray arrayWithArray: self.player.products];
-        self.dataArrayCurrentCardDeck =  [NSMutableArray arrayWithArray: self.player.products];
-        self.dataArrayAllCards = [[NSMutableArray alloc] init];
-        
-    }
-    else
-    {
-         self.dataArrayAllCards = [NSMutableArray arrayWithArray: self.player.products];
-        self.dataArrayCurrentCardDeck = self.player.cardsInDeck;
-    }
-    if([self.player.status isEqualToString:USER_LOGGED_IN])
+
+   
+    if([self.dataManager.player.status isEqualToString:USER_LOGGED_IN])
     {
         //[self loadProducts];
         
@@ -126,8 +113,7 @@
                        });*/
     
     
-    self.dataArrayAllCards = [NSMutableArray arrayWithArray: self.player.products];
-    self.dataArrayCurrentCardDeck = [NSMutableArray arrayWithArray:self.player.cardsInDeck];
+
     //self.dataArrayCurrentCardDeck = self.user.productsChoosenForDeck;
     
     //self.dataArrayCurrentCardDeck = self.player.products;
@@ -157,11 +143,11 @@
  
     if(collectionView == self.collectionView)
     {
-         return self.dataArrayAllCards.count;
+        return self.dataManager.player.products.count;
     }
     else
     {
-        return  self.dataArrayCurrentCardDeck.count;
+        return  self.dataManager.player.cardsInDeck.count;
     }
    
 }
@@ -178,11 +164,11 @@
     
     if(collectionView == self.collectionView)
     {
-         currentProduct = [self.dataArrayAllCards objectAtIndex:indexPath.row];
+         currentProduct = [self.dataManager.player.products objectAtIndex:indexPath.row];
     }
     else
     {
-        currentProduct = [self.dataArrayCurrentCardDeck objectAtIndex:indexPath.row];
+        currentProduct = [self.dataManager.player.cardsInDeck objectAtIndex:indexPath.row];
 
     }
     TOverviewCardViewController *ov = [CardGenerator generateOverviewCard:currentProduct];
@@ -200,7 +186,7 @@
 
 
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+/*-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Product *currentProduct;
 
@@ -228,7 +214,7 @@
     self.selectedCardImageView.image = cardImage;
     
     
-}
+}*/
 
 
 
@@ -245,7 +231,7 @@
 
 -(void)productsUpdated:(NSDictionary *)updatedProducts
 {
-    self.dataArrayAllCards = [NSMutableArray arrayWithArray: self.player.products];
+    //self.dataArrayAllCards = [NSMutableArray arrayWithArray: self.dataManager.player.products];
     //self.dataArrayCurrentCardDeck = self.user.productsChoosenForDeck;
     
     //self.dataArrayCurrentCardDeck = self.player.products;
@@ -273,7 +259,7 @@
             
             TCardCollectionViewCell *cardField =(TCardCollectionViewCell*) [self.collectionView cellForItemAtIndexPath:path];
 
-            self.productTouched = [self.dataArrayAllCards objectAtIndex:path.row];
+            self.productTouched = [self.dataManager.player.products objectAtIndex:path.row];
             
             
             TOverviewCardViewController *detailVc = [CardGenerator generateOverviewCard:self.productTouched];
@@ -301,36 +287,31 @@
     //Touch ended
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
-        UIView *touchedView = [self.view hitTest:self.cardDublicate.center withEvent:nil];
 
-        if([touchedView isKindOfClass:[UICollectionView class]])
+
+        if(CGRectContainsPoint(self.collectionViewCurrentDeck.frame, self.cardDublicate.center))
         {
-            UICollectionView *collectionView = (UICollectionView*) touchedView;
-            
-            if(collectionView == self.collectionViewCurrentDeck)
-            {
+
                 if(self.productTouched != nil)
                 {
-                    [self.dataArrayCurrentCardDeck addObject:self.productTouched];
+                    [self.dataManager.player.cardsInDeck addObject:self.productTouched];
                     [self.collectionViewCurrentDeck reloadData];
                     
-                    [self.dataArrayAllCards removeObject:self.productTouched];
+                    [self.dataManager.player.products removeObject:self.productTouched];
+                    
                     [self.collectionView reloadData];
                     
                     [self.cardDublicate removeFromSuperview];
                     self.productTouched = nil;
-                    
-                    self.player.cardsInDeck = self.dataArrayCurrentCardDeck;
-                    self.player.products = self.dataArrayAllCards;
-                }
+                
                 
                // [self.dataManager saveProducts:self.dataArrayAllCards andProductsInDeck:self.dataArrayCurrentCardDeck];
-            }
-            else
-            {
-                [self.cardDublicate removeFromSuperview];
-                 self.productTouched = nil;
-            }
+                }
+                else
+                {
+                    [self.cardDublicate removeFromSuperview];
+                    self.productTouched = nil;
+                }
         }
         else
         {
@@ -338,7 +319,7 @@
              self.productTouched = nil;
         }
        
-    }
+}
 
 }
 
@@ -360,7 +341,7 @@
             
             TCardCollectionViewCell *cardField =(TCardCollectionViewCell*) [self.collectionViewCurrentDeck cellForItemAtIndexPath:path];
             
-            self.productTouched = [self.dataArrayCurrentCardDeck objectAtIndex:path.row];
+            self.productTouched = [self.dataManager.player.cardsInDeck objectAtIndex:path.row];
             
             
             TOverviewCardViewController *detailVc = [CardGenerator generateOverviewCard:self.productTouched];
@@ -388,27 +369,21 @@
     //Touch ended
     if(recognizer.state == UIGestureRecognizerStateEnded)
     {
-        UIView *touchedView = [self.view hitTest:self.cardDublicate.center withEvent:nil];
-        
-        if([touchedView isKindOfClass:[UICollectionView class]])
+        if(CGRectContainsPoint(self.collectionView.frame, self.cardDublicate.center))
         {
-            UICollectionView *collectionView = (UICollectionView*) touchedView;
             
-            if(collectionView == self.collectionView)
-            {
-                if(self.productTouched != nil)
+            if(self.productTouched != nil)
                 {
-                    [self.dataArrayAllCards addObject:self.productTouched];
+                    [self.dataManager.player.products addObject:self.productTouched];
                     [self.collectionView reloadData];
                     
-                    [self.dataArrayCurrentCardDeck removeObject:self.productTouched];
+                    [self.dataManager.player.cardsInDeck removeObject:self.productTouched];
                     [self.collectionViewCurrentDeck reloadData];
                     
                     [self.cardDublicate removeFromSuperview];
                     self.productTouched = nil;
-                    self.player.cardsInDeck = self.dataArrayCurrentCardDeck;
-                    self.player.products = self.dataArrayAllCards;
-                }
+                    
+                
                 
                 // [self.dataManager saveProducts:self.dataArrayAllCards andProductsInDeck:self.dataArrayCurrentCardDeck];
             }
@@ -418,6 +393,7 @@
                 self.productTouched = nil;
             }
         }
+        
         else
         {
             [self.cardDublicate removeFromSuperview];
@@ -432,27 +408,57 @@
 -(IBAction)handleSingleTap:(UITapGestureRecognizer*)recognizer
 {
     
-    CGPoint touch = [recognizer locationInView:self.view];
-    UIView *touchedView = [self.view hitTest:touch withEvent:nil];
-    //CGRect frame =  [self.cardDetailView convertRect:self.cardDetailView.bounds toView:self.view];
-    
-    if([touchedView isKindOfClass:[TCardCollectionViewCell class]])
+    if(self.closeDetailView == NO)
     {
-        TCardCollectionViewCell *cardField = (TCardCollectionViewCell*) touchedView;
-        NSIndexPath *path = [self.collectionView indexPathForCell:cardField];
-        Product *productTouched = [self.dataArrayAllCards objectAtIndex:path.row];
-
+        self.closeDetailView = YES;
+        CGPoint touch = [recognizer locationInView:self.view];
+        UIView *touchedView = [self.view hitTest:touch withEvent:nil];
+        Product *product;
         
-        TDetailCardViewController *detailVc = [CardGenerator generateDetailCard:productTouched];
-        UIImage *snapshot = [detailVc snapshotView];
+        if(CGRectContainsPoint(self.collectionView.frame, touch))
+        {
+             CGPoint point = [recognizer locationInView:self.collectionView];
+             NSIndexPath *path =  [self.collectionView indexPathForItemAtPoint:point];
+             product = [self.dataManager.player.products objectAtIndex:path.row];
+        }
+        else if(CGRectContainsPoint(self.collectionViewCurrentDeck.frame, touch))
+        {
+            CGPoint point = [recognizer locationInView:self.collectionViewCurrentDeck];
+            NSIndexPath *path =  [self.collectionViewCurrentDeck indexPathForItemAtPoint:point];
+            product = [self.dataManager.player.products objectAtIndex:path.row];
+        }
+
+       
+        //CGRect frame =  [self.cardDetailView convertRect:self.cardDetailView.bounds toView:self.view];
        
         
-        UIImageView *view = [[UIImageView alloc] initWithFrame:cardField.frame];
-        view.image = snapshot;
-        
-            NSLog(@"card touched");
-        
+        if(product)
+        {
+            
+            TDetailCardViewController *detailVc = [CardGenerator generateDetailCard:product];
+            UIImage *snapshot = [detailVc snapshotView];
+            
+            
+            
+            CGPoint center = CGPointMake(self.view.bounds.size.width * 0.5f, self.view.bounds.size.height * 0.5f);
+            self.cardDetailView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 250)];
+            self.cardDetailView.image = snapshot;
+            self.cardDetailView.center = center;
+            self.cardDetailView.userInteractionEnabled = YES;
+            [self.view addSubview:self.cardDetailView];
+            
+            
+            
+            
+        }
     }
+    else
+    {
+        [self.cardDetailView removeFromSuperview];
+        self.cardDetailView = nil;
+        self.closeDetailView = NO;
+    }
+
     
 }
 
