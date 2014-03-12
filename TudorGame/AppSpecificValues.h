@@ -137,7 +137,11 @@
 #define SPELLTYPE_INCREMENT_ATK @"incrementATK"
 #define SPELLTYPE_INCREMENT_DEF @"incrementDEF"
 
+#define IS_IPHONE5          ([[UIScreen mainScreen] bounds].size.width >= 568 || [[UIScreen mainScreen] bounds].size.height >= 568)?YES:NO
+#define IS_IPHONE           (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)?YES:NO
+#define IS_IPAD             (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?YES:NO
 
+#define DeviceType          ((IS_IPAD)?@"IPAD":(IS_IPHONE5)?@"IPHONE 5":@"IPHONE")
 
 
 #endif
