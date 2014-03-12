@@ -41,6 +41,7 @@
     if (self = [super init])
     {
         self.player = [[Player alloc] init];
+        self.player.cardsInDeck = [[NSMutableArray alloc] init];
         [self loadCoreData];
         self.game = nil;
         
@@ -97,7 +98,7 @@
         [array addObject:p];
         
     }*/
-    self.player.cardsInGame = [NSMutableArray arrayWithArray: self.player.products];
+
     self.game = nil;
  
 
@@ -383,9 +384,9 @@
     [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
                                                                                    toKeyPath:@"nutritives"
                                                                                  withMapping:nutritiveMapping]];
-    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+    [ productMapping addAttributeMappingsFromDictionary:@{@"EANCode" : @"EANCode",
                                                           @"eantype" : @"EANType",
-                                                          @"wikiFoodid" : @"wikiFoodID",
+                                                          @"wikiFoodID" : @"wikiFoodID",
                                                           @"name" : @"name",
                                                           @"atk" :@"atk",
                                                           @"hp": @"hp",
@@ -447,9 +448,9 @@
     [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
                                                                                    toKeyPath:@"nutritives"
                                                                                  withMapping:nutritiveMapping]];
-    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+    [ productMapping addAttributeMappingsFromDictionary:@{@"EANCode" : @"EANCode",
                                                           @"eantype" : @"EANType",
-                                                          @"wikiFoodid" : @"wikiFoodID",
+                                                          @"wikiFoodID" : @"wikiFoodID",
                                                           @"name" : @"name",
                                                           @"atk" :@"atk",
                                                           @"hp": @"hp",
@@ -510,9 +511,9 @@
     [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
                                                                                    toKeyPath:@"nutritives"
                                                                                  withMapping:nutritiveMapping]];
-    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+    [ productMapping addAttributeMappingsFromDictionary:@{@"EANCode" : @"EANCode",
                                                           @"eantype" : @"EANType",
-                                                          @"wikiFoodid" : @"wikiFoodID",
+                                                          @"wikiFoodID" : @"wikiFoodID",
                                                           @"name" : @"name",
                                                           @"atk" :@"atk",
                                                           @"hp": @"hp",
@@ -595,9 +596,9 @@
     [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
                                                                                    toKeyPath:@"nutritives"
                                                                                  withMapping:nutritiveMapping]];
-    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+    [ productMapping addAttributeMappingsFromDictionary:@{@"EANCode" : @"EANCode",
                                                           @"eantype" : @"EANType",
-                                                          @"wikiFoodid" : @"wikiFoodID",
+                                                          @"wikiFoodID" : @"wikiFoodID",
                                                           @"name" : @"name",
                                                           @"atk" :@"atk",
                                                           @"hp": @"hp",
@@ -663,7 +664,7 @@
     [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
                                                                                    toKeyPath:@"nutritives"
                                                                                  withMapping:nutritiveMapping]];
-    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+    [ productMapping addAttributeMappingsFromDictionary:@{@"EANCode" : @"EANCode",
                                                           @"eantype" : @"EANType",
                                                           @"wikiFoodid" : @"wikiFoodID",
                                                           @"name" : @"name",
