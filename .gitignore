@@ -8,4 +8,8 @@ RestKit
 *.perspectivev3
 *.xcuserdatad
 
+# temp nibs and swap files
+*~.nib
+*.swp
+*.orig
 
