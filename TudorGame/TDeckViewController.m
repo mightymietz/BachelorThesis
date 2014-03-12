@@ -9,8 +9,10 @@
 #import "TDeckViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "TProductViewController.h"
+#import "TUsersDeckViewController.h"
 #import "Product.h"
-#import "User.h"
+#import "Player.h"
+#import "SpinnerView.h"
 @interface TDeckViewController ()
 @property (strong) AVCaptureSession *captureSession;
 @property (nonatomic, retain) AVCaptureVideoPreviewLayer *previewLayer;
@@ -62,7 +64,82 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    return YES;
+    if([identifier isEqualToString:SEGUE_SHOWDECK])
+    {
+
+
+        //User ist connected, lade Karten
+      /*  if(user.isConnected)
+        {
+            [SpinnerView loadSpinnerIntoViewController:self withText: @"loading cards..." andBtnTouched: @selector(abortLoading)];
+            
+            
+            
+            dispatch_queue_t myNewQueue = dispatch_queue_create("loadProducts", NULL);
+            
+            // Dispatch work to your queue
+            dispatch_async(myNewQueue, ^
+                           {
+                           
+                               [user getProductsFromServerWithCompletion:^(BOOL finished)
+                                {
+                                    NSLog(@"finished loading products");
+                                    
+                                    
+                                    
+                                    // Dispatch work back to the main queue for your UIKit changes
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        
+                                        [self performSegueWithIdentifier:SEGUE_SHOWDECK sender:self];
+
+                                        
+                                        [SpinnerView removeSpinnerFromViewController:self];
+                                        NSLog(@"%@", user.currentID);
+                                    });
+
+                                    // NSLog(@"%@",[[p.ingredients objectAtIndex:0] stringValue]);
+                                    
+                                    
+                                }];
+
+                              
+                               
+                           });
+            
+        }
+        //User ist nicht connected, versuche login
+        else
+        {
+            
+            [SpinnerView loadSpinnerIntoViewController:self withText:@"logging in..." andBtnTouched:@selector(backBtnTouched:)];
+            
+            
+            dispatch_queue_t myNewQueue = dispatch_queue_create("loggingIn", NULL);
+            
+            // Dispatch work to your queue
+            dispatch_async(myNewQueue, ^
+                           {
+                               
+                               [user connectUserWith:user.username andPassword:user.password completion:^(BOOL finished)
+                                {
+                                    
+                                    // Dispatch work back to the main queue for your UIKit changes
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        
+                                                                               
+                                        [SpinnerView removeSpinnerFromViewController:self];
+                                        NSLog(@"%@", user.currentID);
+                                    });
+                                }];
+                               
+                           });
+
+        }*/
+        
+    }
+       
+    
+    return NO;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -75,9 +152,15 @@
         
         productVC.scannedProduct = self.scannedProduct;
     }
+    else if([destinationVC isKindOfClass:[TUsersDeckViewController class]])
+    {
+        
+    }
     else
     {
         NSLog(@"Wrong UIViewController Class was sent to Segue");
+
+        
     }
 }
 
@@ -148,7 +231,7 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
     
     
     
-    self.scannedProduct.EANCode = EANCode;
+    //self.scannedProduct.EANCode = [EANCode integerValue];
     
     [self.captureSession stopRunning];
     [self.previewLayer removeFromSuperlayer];
@@ -156,19 +239,9 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
     [self performSegueWithIdentifier:SEGUE_PRODUCT sender:self];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)abortLoading
 {
-   
-     User *sharedManager = [User sharedManager];
-   // NSDictionary *products = sharedManager.products;
-    
-   /* for( NSString *aKey in products )
-    {
-        NSLog(@"%@", aKey);
-    }*/
-    
-
-      NSLog(@"%@",@"pdojfopijefpepfmfem");
+    [SpinnerView removeSpinnerFromViewController:self];
 }
 
 @end

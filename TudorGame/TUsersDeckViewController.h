@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TUsersDeckViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface TUsersDeckViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewCurrentDeck;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedCardImageView;
+- (IBAction)backBtnTouched:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *panRecognizer;
+
+//Handle Tap
+-(IBAction)handleSingleTap:(UITapGestureRecognizer*)recognizer;
+//Handle Pan with HandCards
+- (IBAction)handlePanAllCards:(UIPanGestureRecognizer *)recognizer;
+- (IBAction)handlePanCurrentDeck:(UIPanGestureRecognizer *)recognizer;
 @end

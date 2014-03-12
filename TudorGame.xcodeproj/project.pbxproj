@@ -7,19 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27008B9618AA199000432BC2 /* CardGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 27008B9518AA199000432BC2 /* CardGenerator.m */; };
+		27008BA518AA28AF00432BC2 /* TOverviewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27008BA318AA28AE00432BC2 /* TOverviewCardViewController.m */; };
+		27008BA618AA28AF00432BC2 /* TOverviewCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27008BA418AA28AF00432BC2 /* TOverviewCardViewController.xib */; };
+		27008C1718C786BC00E801CE /* UserCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27008C1518C786BC00E801CE /* UserCoreData.xcdatamodeld */; };
+		270E077C18CF559E0073D015 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 270E077B18CF559E0073D015 /* UserData.m */; };
+		272AB6A418B2A9020093BA10 /* arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AB6A218B2A9020093BA10 /* arrowdown.png */; };
+		272AB6A518B2A9020093BA10 /* arrowup.png in Resources */ = {isa = PBXBuildFile; fileRef = 272AB6A318B2A9020093BA10 /* arrowup.png */; };
 		272D1A781889206800545543 /* TLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D1A771889206800545543 /* TLogInViewController.m */; };
+		272D3B191897D40800236EBB /* TDetailCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D3B171897D40800236EBB /* TDetailCardViewController.m */; };
+		272D3B1A1897D40800236EBB /* TDetailCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272D3B181897D40800236EBB /* TDetailCardViewController.xib */; };
+		272E6EB318ACF58A00869EA1 /* Opponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 272E6EB218ACF58A00869EA1 /* Opponent.m */; };
 		27388B4D1887DD0F0083512D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B4C1887DD0F0083512D /* CoreData.framework */; };
 		27388B4F1887DD180083512D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B4E1887DD180083512D /* MobileCoreServices.framework */; };
 		27388B511887DD280083512D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B501887DD280083512D /* Security.framework */; };
 		27388B531887DD2F0083512D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B521887DD2F0083512D /* SystemConfiguration.framework */; };
 		27388B551887DDDB0083512D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 273F8C4A18858AD80085E6E7 /* libxml2.dylib */; };
 		27388B661887DF880083512D /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27388B5E1887DF660083512D /* libRestKit.a */; };
-		27388B6B1887E0A30083512D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 27388B6A1887E0A30083512D /* Item.m */; };
 		273F8C4918858A8C0085E6E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273F8C4818858A8C0085E6E7 /* CFNetwork.framework */; };
 		275D38F218899342006A0CCE /* TCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D38F118899342006A0CCE /* TCardCollectionViewCell.m */; };
 		2769CAE8188ECFAD00824DAF /* SHACode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2769CAE7188ECFAD00824DAF /* SHACode.m */; };
+		2771FD3618B0C3C100974C64 /* emptyField.png in Resources */ = {isa = PBXBuildFile; fileRef = 2771FD3518B0C3C100974C64 /* emptyField.png */; };
+		2771FD3818B14FA100974C64 /* sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 2771FD3718B14FA100974C64 /* sword.png */; };
+		2771FD3B18B14FAA00974C64 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2771FD3918B14FAA00974C64 /* heart.png */; };
+		2771FD3C18B14FAA00974C64 /* shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 2771FD3A18B14FAA00974C64 /* shield.png */; };
+		2781D87C18928F55002366EB /* Nutritive.m in Sources */ = {isa = PBXBuildFile; fileRef = 2781D87B18928F55002366EB /* Nutritive.m */; };
+		2798350218AB703A002CC890 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2798350118AB703A002CC890 /* nopic.png */; };
+		2798350C18AB789E002CC890 /* cardback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2798350B18AB789E002CC890 /* cardback.jpg */; };
+		2798351018AB7923002CC890 /* TGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2798350F18AB7923002CC890 /* TGameManager.m */; };
+		2798351818ABB1C8002CC890 /* carddeck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2798351718ABB1C8002CC890 /* carddeck.jpg */; };
+		2798351E18ABD332002CC890 /* TCardField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2798351D18ABD332002CC890 /* TCardField.m */; };
+		27C0808C189A436900F4DE64 /* TNutritiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C0808B189A436900F4DE64 /* TNutritiveCell.m */; };
+		27C0808E189A437D00F4DE64 /* TNutritiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C0808D189A437D00F4DE64 /* TNutritiveCell.xib */; };
+		27C08092189A4C6A00F4DE64 /* SpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C08091189A4C6A00F4DE64 /* SpinnerView.m */; };
+		27C08098189A5F1100F4DE64 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C08097189A5F1100F4DE64 /* Game.m */; };
 		27C195CE188990E900BE7B66 /* TUsersDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */; };
-		27E64866188831E0003FA9C6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E64865188831E0003FA9C6 /* User.m */; };
+		27C9D32618AE149B0070C697 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9D32518AE149B0070C697 /* DataManager.m */; };
+		27C9D33318AE5C3E0070C697 /* noAvatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C9D33218AE5C3E0070C697 /* noAvatar.jpg */; };
+		27E64866188831E0003FA9C6 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E64865188831E0003FA9C6 /* Player.m */; };
+		27ECBEEF18A39DAC008FF741 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 27ECBEE818A39DAC008FF741 /* base64.c */; };
+		27ECBEF018A39DAC008FF741 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ECBEEB18A39DAC008FF741 /* NSData+SRB64Additions.m */; };
+		27ECBEF118A39DAC008FF741 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ECBEEE18A39DAC008FF741 /* SRWebSocket.m */; };
+		27ECBEF318A39DD5008FF741 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ECBEF218A39DD5008FF741 /* libicucore.dylib */; };
+		27ECBEFA18A3A50A008FF741 /* Websocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ECBEF918A3A50A008FF741 /* Websocket.m */; };
 		27EFF3BA187E959A005DE689 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3B9187E959A005DE689 /* Foundation.framework */; };
 		27EFF3BC187E959A005DE689 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3BB187E959A005DE689 /* CoreGraphics.framework */; };
 		27EFF3BE187E959A005DE689 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF3BD187E959A005DE689 /* UIKit.framework */; };
@@ -39,10 +69,6 @@
 		27EFF3F6187E9C98005DE689 /* TGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3F5187E9C98005DE689 /* TGameViewController.m */; };
 		27EFF3F9187E9D07005DE689 /* TLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */; };
 		27EFF3FC187E9D9A005DE689 /* TDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */; };
-		27EFF3FF187E9EAD005DE689 /* TTeammanagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */; };
-		27EFF402187E9F52005DE689 /* TSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF401187E9F52005DE689 /* TSettingsViewController.m */; };
-		27EFF405187E9FE5005DE689 /* TProfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF404187E9FE5005DE689 /* TProfilViewController.m */; };
-		27EFF408187EA0C4005DE689 /* TFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF407187EA0C4005DE689 /* TFriendsViewController.m */; };
 		27EFF40C187EA268005DE689 /* TMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFF40B187EA268005DE689 /* TMenuButton.m */; };
 		27EFF431187EA9F4005DE689 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF430187EA9F4005DE689 /* AVFoundation.framework */; };
 		27EFF433187EA9FE005DE689 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFF432187EA9FE005DE689 /* CoreMedia.framework */; };
@@ -100,15 +126,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27008B9418AA199000432BC2 /* CardGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardGenerator.h; sourceTree = "<group>"; };
+		27008B9518AA199000432BC2 /* CardGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardGenerator.m; sourceTree = "<group>"; };
+		27008BA218AA28AE00432BC2 /* TOverviewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOverviewCardViewController.h; sourceTree = "<group>"; };
+		27008BA318AA28AE00432BC2 /* TOverviewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOverviewCardViewController.m; sourceTree = "<group>"; };
+		27008BA418AA28AF00432BC2 /* TOverviewCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOverviewCardViewController.xib; sourceTree = "<group>"; };
+		27008C1618C786BC00E801CE /* UserCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreData.xcdatamodel; sourceTree = "<group>"; };
+		270E077A18CF559E0073D015 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		270E077B18CF559E0073D015 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		272AB6A218B2A9020093BA10 /* arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowdown.png; sourceTree = "<group>"; };
+		272AB6A318B2A9020093BA10 /* arrowup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowup.png; sourceTree = "<group>"; };
 		272D1A761889206800545543 /* TLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLogInViewController.h; sourceTree = "<group>"; };
 		272D1A771889206800545543 /* TLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLogInViewController.m; sourceTree = "<group>"; };
+		272D3B161897D40800236EBB /* TDetailCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDetailCardViewController.h; sourceTree = "<group>"; };
+		272D3B171897D40800236EBB /* TDetailCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDetailCardViewController.m; sourceTree = "<group>"; };
+		272D3B181897D40800236EBB /* TDetailCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDetailCardViewController.xib; sourceTree = "<group>"; };
+		272E6EB118ACF58A00869EA1 /* Opponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Opponent.h; sourceTree = "<group>"; };
+		272E6EB218ACF58A00869EA1 /* Opponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Opponent.m; sourceTree = "<group>"; };
 		27388B4C1887DD0F0083512D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		27388B4E1887DD180083512D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		27388B501887DD280083512D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		27388B521887DD2F0083512D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		27388B561887DF660083512D /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
-		27388B691887E0A30083512D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		27388B6A1887E0A30083512D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		273F8C4818858A8C0085E6E7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		273F8C4A18858AD80085E6E7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		275D38F018899342006A0CCE /* TCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCardCollectionViewCell.h; sourceTree = "<group>"; };
@@ -116,10 +155,43 @@
 		2769CAE6188ECFAD00824DAF /* SHACode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHACode.h; sourceTree = "<group>"; };
 		2769CAE7188ECFAD00824DAF /* SHACode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHACode.m; sourceTree = "<group>"; };
 		2769CAE9188ED0BD00824DAF /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		2771FD3518B0C3C100974C64 /* emptyField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyField.png; sourceTree = "<group>"; };
+		2771FD3718B14FA100974C64 /* sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sword.png; sourceTree = "<group>"; };
+		2771FD3918B14FAA00974C64 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		2771FD3A18B14FAA00974C64 /* shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shield.png; sourceTree = "<group>"; };
+		2781D87A18928F55002366EB /* Nutritive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nutritive.h; sourceTree = "<group>"; };
+		2781D87B18928F55002366EB /* Nutritive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nutritive.m; sourceTree = "<group>"; };
+		2798350118AB703A002CC890 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nopic.png; sourceTree = "<group>"; };
+		2798350B18AB789E002CC890 /* cardback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardback.jpg; sourceTree = "<group>"; };
+		2798350E18AB7923002CC890 /* TGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGameManager.h; sourceTree = "<group>"; };
+		2798350F18AB7923002CC890 /* TGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGameManager.m; sourceTree = "<group>"; };
+		2798351718ABB1C8002CC890 /* carddeck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carddeck.jpg; sourceTree = "<group>"; };
+		2798351C18ABD332002CC890 /* TCardField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCardField.h; sourceTree = "<group>"; };
+		2798351D18ABD332002CC890 /* TCardField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCardField.m; sourceTree = "<group>"; };
+		27C0808A189A436900F4DE64 /* TNutritiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNutritiveCell.h; sourceTree = "<group>"; };
+		27C0808B189A436900F4DE64 /* TNutritiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNutritiveCell.m; sourceTree = "<group>"; };
+		27C0808D189A437D00F4DE64 /* TNutritiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TNutritiveCell.xib; sourceTree = "<group>"; };
+		27C08090189A4C6A00F4DE64 /* SpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerView.h; sourceTree = "<group>"; };
+		27C08091189A4C6A00F4DE64 /* SpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerView.m; sourceTree = "<group>"; };
+		27C08096189A5F1100F4DE64 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		27C08097189A5F1100F4DE64 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		27C195CC188990E900BE7B66 /* TUsersDeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUsersDeckViewController.h; sourceTree = "<group>"; };
 		27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUsersDeckViewController.m; sourceTree = "<group>"; };
-		27E64864188831E0003FA9C6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		27E64865188831E0003FA9C6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		27C9D32418AE149B0070C697 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		27C9D32518AE149B0070C697 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		27C9D33218AE5C3E0070C697 /* noAvatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noAvatar.jpg; sourceTree = "<group>"; };
+		27E64864188831E0003FA9C6 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		27E64865188831E0003FA9C6 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		27ECBEE818A39DAC008FF741 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		27ECBEE918A39DAC008FF741 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		27ECBEEA18A39DAC008FF741 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		27ECBEEB18A39DAC008FF741 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		27ECBEEC18A39DAC008FF741 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		27ECBEED18A39DAC008FF741 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		27ECBEEE18A39DAC008FF741 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		27ECBEF218A39DD5008FF741 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		27ECBEF818A3A50A008FF741 /* Websocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Websocket.h; sourceTree = "<group>"; };
+		27ECBEF918A3A50A008FF741 /* Websocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Websocket.m; sourceTree = "<group>"; };
 		27EFF3B6187E959A005DE689 /* TudorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TudorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EFF3B9187E959A005DE689 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27EFF3BB187E959A005DE689 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,14 +220,6 @@
 		27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLobbyViewController.m; sourceTree = "<group>"; };
 		27EFF3FA187E9D9A005DE689 /* TDeckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDeckViewController.h; sourceTree = "<group>"; };
 		27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDeckViewController.m; sourceTree = "<group>"; };
-		27EFF3FD187E9EAD005DE689 /* TTeammanagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTeammanagementViewController.h; sourceTree = "<group>"; };
-		27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTeammanagementViewController.m; sourceTree = "<group>"; };
-		27EFF400187E9F52005DE689 /* TSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSettingsViewController.h; sourceTree = "<group>"; };
-		27EFF401187E9F52005DE689 /* TSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSettingsViewController.m; sourceTree = "<group>"; };
-		27EFF403187E9FE5005DE689 /* TProfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProfilViewController.h; sourceTree = "<group>"; };
-		27EFF404187E9FE5005DE689 /* TProfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProfilViewController.m; sourceTree = "<group>"; };
-		27EFF406187EA0C4005DE689 /* TFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFriendsViewController.h; sourceTree = "<group>"; };
-		27EFF407187EA0C4005DE689 /* TFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFriendsViewController.m; sourceTree = "<group>"; };
 		27EFF40A187EA268005DE689 /* TMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuButton.h; sourceTree = "<group>"; };
 		27EFF40B187EA268005DE689 /* TMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuButton.m; sourceTree = "<group>"; };
 		27EFF430187EA9F4005DE689 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -177,12 +241,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27ECBEF318A39DD5008FF741 /* libicucore.dylib in Frameworks */,
+				27388B511887DD280083512D /* Security.framework in Frameworks */,
 				27388B661887DF880083512D /* libRestKit.a in Frameworks */,
 				27388B551887DDDB0083512D /* libxml2.dylib in Frameworks */,
 				27388B531887DD2F0083512D /* SystemConfiguration.framework in Frameworks */,
-				27388B511887DD280083512D /* Security.framework in Frameworks */,
 				27388B4F1887DD180083512D /* MobileCoreServices.framework in Frameworks */,
-				27388B4D1887DD0F0083512D /* CoreData.framework in Frameworks */,
 				273F8C4918858A8C0085E6E7 /* CFNetwork.framework in Frameworks */,
 				27EFF43F187EB0AE005DE689 /* ImageIO.framework in Frameworks */,
 				27EFF437187EAA0B005DE689 /* QuartzCore.framework in Frameworks */,
@@ -192,6 +256,7 @@
 				27EFF3BC187E959A005DE689 /* CoreGraphics.framework in Frameworks */,
 				27EFF3BE187E959A005DE689 /* UIKit.framework in Frameworks */,
 				27EFF3BA187E959A005DE689 /* Foundation.framework in Frameworks */,
+				27388B4D1887DD0F0083512D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +273,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27008B9C18AA1BF700432BC2 /* CardManaging */ = {
+			isa = PBXGroup;
+			children = (
+				272D3B161897D40800236EBB /* TDetailCardViewController.h */,
+				272D3B171897D40800236EBB /* TDetailCardViewController.m */,
+				272D3B181897D40800236EBB /* TDetailCardViewController.xib */,
+				27008B9418AA199000432BC2 /* CardGenerator.h */,
+				27008B9518AA199000432BC2 /* CardGenerator.m */,
+				27008BA218AA28AE00432BC2 /* TOverviewCardViewController.h */,
+				27008BA318AA28AE00432BC2 /* TOverviewCardViewController.m */,
+				27008BA418AA28AF00432BC2 /* TOverviewCardViewController.xib */,
+			);
+			name = CardManaging;
+			sourceTree = "<group>";
+		};
+		27288E7B18A23EEE008B4430 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				270E077A18CF559E0073D015 /* UserData.h */,
+				270E077B18CF559E0073D015 /* UserData.m */,
+				27008C1518C786BC00E801CE /* UserCoreData.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		27388B571887DF660083512D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,18 +321,160 @@
 		2769CAE2188ECF9300824DAF /* Toolbox */ = {
 			isa = PBXGroup;
 			children = (
+				27EFF43D187EADB4005DE689 /* AppSpecificValues.h */,
+				27EFF6EC187ED095005DE689 /* EANCodes.plist */,
 				2769CAE6188ECFAD00824DAF /* SHACode.h */,
 				2769CAE7188ECFAD00824DAF /* SHACode.m */,
 			);
 			name = Toolbox;
 			sourceTree = "<group>";
 		};
-		27D7D52E187FE7B00060ED46 /* HeaderFiles */ = {
+		2781D87918928F2A002366EB /* DataManaging */ = {
 			isa = PBXGroup;
 			children = (
-				27EFF43D187EADB4005DE689 /* AppSpecificValues.h */,
+				27E64864188831E0003FA9C6 /* Player.h */,
+				27E64865188831E0003FA9C6 /* Player.m */,
+				27EFF6E9187EB997005DE689 /* Product.h */,
+				27EFF6EA187EB997005DE689 /* Product.m */,
+				2781D87A18928F55002366EB /* Nutritive.h */,
+				2781D87B18928F55002366EB /* Nutritive.m */,
+				27C08096189A5F1100F4DE64 /* Game.h */,
+				27C08097189A5F1100F4DE64 /* Game.m */,
+				272E6EB118ACF58A00869EA1 /* Opponent.h */,
+				272E6EB218ACF58A00869EA1 /* Opponent.m */,
+				27C9D32418AE149B0070C697 /* DataManager.h */,
+				27C9D32518AE149B0070C697 /* DataManager.m */,
 			);
-			name = HeaderFiles;
+			name = DataManaging;
+			sourceTree = "<group>";
+		};
+		278EE8631897A117003FEBC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27C08090189A4C6A00F4DE64 /* SpinnerView.h */,
+				27C08091189A4C6A00F4DE64 /* SpinnerView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		279834F518AB6CE5002CC890 /* PlayingField */ = {
+			isa = PBXGroup;
+			children = (
+				2798351C18ABD332002CC890 /* TCardField.h */,
+				2798351D18ABD332002CC890 /* TCardField.m */,
+			);
+			name = PlayingField;
+			sourceTree = "<group>";
+		};
+		2798350A18AB7814002CC890 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				272AB6A218B2A9020093BA10 /* arrowdown.png */,
+				272AB6A318B2A9020093BA10 /* arrowup.png */,
+				2771FD3918B14FAA00974C64 /* heart.png */,
+				2771FD3A18B14FAA00974C64 /* shield.png */,
+				2771FD3718B14FA100974C64 /* sword.png */,
+				2771FD3518B0C3C100974C64 /* emptyField.png */,
+				27C9D33218AE5C3E0070C697 /* noAvatar.jpg */,
+				2798351718ABB1C8002CC890 /* carddeck.jpg */,
+				2798350B18AB789E002CC890 /* cardback.jpg */,
+				2798350118AB703A002CC890 /* nopic.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		2798350D18AB790B002CC890 /* GameManaging */ = {
+			isa = PBXGroup;
+			children = (
+				279834F518AB6CE5002CC890 /* PlayingField */,
+				2798350E18AB7923002CC890 /* TGameManager.h */,
+				2798350F18AB7923002CC890 /* TGameManager.m */,
+			);
+			name = GameManaging;
+			sourceTree = "<group>";
+		};
+		27C08086189A434800F4DE64 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				27C0808A189A436900F4DE64 /* TNutritiveCell.h */,
+				27C0808B189A436900F4DE64 /* TNutritiveCell.m */,
+				27C0808D189A437D00F4DE64 /* TNutritiveCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		27C0808F189A4BB100F4DE64 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3F7187E9D07005DE689 /* TLobbyViewController.h */,
+				27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */,
+				27EFF3F4187E9C98005DE689 /* TGameViewController.h */,
+				27EFF3F5187E9C98005DE689 /* TGameViewController.m */,
+				27EFF3D4187E959B005DE689 /* SecondViewController.h */,
+				27EFF3D5187E959B005DE689 /* SecondViewController.m */,
+			);
+			name = GameViewController;
+			sourceTree = "<group>";
+		};
+		27C08093189A5E6E00F4DE64 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF40A187EA268005DE689 /* TMenuButton.h */,
+				27EFF40B187EA268005DE689 /* TMenuButton.m */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		27C08094189A5EBF00F4DE64 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3C8187E959A005DE689 /* AppDelegate.h */,
+				27EFF3C9187E959A005DE689 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		27C08095189A5ED600F4DE64 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				27EFF3CB187E959A005DE689 /* Main_iPhone.storyboard */,
+				27EFF3CE187E959B005DE689 /* Main_iPad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		27C08099189A636900F4DE64 /* CardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27C195CC188990E900BE7B66 /* TUsersDeckViewController.h */,
+				27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */,
+				27EFF3FA187E9D9A005DE689 /* TDeckViewController.h */,
+				27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */,
+			);
+			name = CardViewController;
+			sourceTree = "<group>";
+		};
+		27ECBEE418A39D97008FF741 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				27ECBEE818A39DAC008FF741 /* base64.c */,
+				27ECBEE918A39DAC008FF741 /* base64.h */,
+				27ECBEEA18A39DAC008FF741 /* NSData+SRB64Additions.h */,
+				27ECBEEB18A39DAC008FF741 /* NSData+SRB64Additions.m */,
+				27ECBEEC18A39DAC008FF741 /* SocketRocket-Prefix.pch */,
+				27ECBEED18A39DAC008FF741 /* SRWebSocket.h */,
+				27ECBEEE18A39DAC008FF741 /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			sourceTree = "<group>";
+		};
+		27ECBEF418A3A4AB008FF741 /* Websocket */ = {
+			isa = PBXGroup;
+			children = (
+				27ECBEF818A3A50A008FF741 /* Websocket.h */,
+				27ECBEF918A3A50A008FF741 /* Websocket.m */,
+			);
+			name = Websocket;
 			sourceTree = "<group>";
 		};
 		27EFF3AD187E959A005DE689 = {
@@ -268,6 +500,7 @@
 		27EFF3B8187E959A005DE689 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27ECBEF218A39DD5008FF741 /* libicucore.dylib */,
 				2769CAE9188ED0BD00824DAF /* libcommonCrypto.dylib */,
 				27388B521887DD2F0083512D /* SystemConfiguration.framework */,
 				27388B501887DD280083512D /* Security.framework */,
@@ -292,29 +525,23 @@
 		27EFF3BF187E959A005DE689 /* TudorGame */ = {
 			isa = PBXGroup;
 			children = (
+				2798350D18AB790B002CC890 /* GameManaging */,
+				2798350A18AB7814002CC890 /* Assets */,
+				27008B9C18AA1BF700432BC2 /* CardManaging */,
+				27ECBEF418A3A4AB008FF741 /* Websocket */,
+				27ECBEE418A39D97008FF741 /* SocketRocket */,
+				27288E7B18A23EEE008B4430 /* CoreData */,
+				27C08095189A5ED600F4DE64 /* Storyboards */,
+				27C08094189A5EBF00F4DE64 /* AppDelegate */,
+				27C08093189A5E6E00F4DE64 /* Buttons */,
+				27C08086189A434800F4DE64 /* TableViewCells */,
+				278EE8631897A117003FEBC2 /* Views */,
+				2781D87918928F2A002366EB /* DataManaging */,
 				2769CAE2188ECF9300824DAF /* Toolbox */,
 				275D38EC18899322006A0CCE /* CollectionViewCells */,
-				27D7D52E187FE7B00060ED46 /* HeaderFiles */,
-				27EFF6EE187ED80B005DE689 /* Data */,
 				27EFF409187EA242005DE689 /* ViewControllers */,
-				27EFF3C8187E959A005DE689 /* AppDelegate.h */,
-				27EFF3C9187E959A005DE689 /* AppDelegate.m */,
-				27EFF3CB187E959A005DE689 /* Main_iPhone.storyboard */,
-				27EFF3CE187E959B005DE689 /* Main_iPad.storyboard */,
-				27EFF3D1187E959B005DE689 /* FirstViewController.h */,
-				27EFF3D2187E959B005DE689 /* FirstViewController.m */,
-				27EFF3D4187E959B005DE689 /* SecondViewController.h */,
-				27EFF3D5187E959B005DE689 /* SecondViewController.m */,
 				27EFF3D7187E959B005DE689 /* Images.xcassets */,
 				27EFF3C0187E959A005DE689 /* Supporting Files */,
-				27EFF40A187EA268005DE689 /* TMenuButton.h */,
-				27EFF40B187EA268005DE689 /* TMenuButton.m */,
-				27EFF6E9187EB997005DE689 /* Product.h */,
-				27EFF6EA187EB997005DE689 /* Product.m */,
-				27388B691887E0A30083512D /* Item.h */,
-				27388B6A1887E0A30083512D /* Item.m */,
-				27E64864188831E0003FA9C6 /* User.h */,
-				27E64865188831E0003FA9C6 /* User.m */,
 			);
 			path = TudorGame;
 			sourceTree = "<group>";
@@ -351,36 +578,16 @@
 		27EFF409187EA242005DE689 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				27EFF3F4187E9C98005DE689 /* TGameViewController.h */,
-				27EFF3F5187E9C98005DE689 /* TGameViewController.m */,
-				27EFF3F7187E9D07005DE689 /* TLobbyViewController.h */,
-				27EFF3F8187E9D07005DE689 /* TLobbyViewController.m */,
-				27EFF3FA187E9D9A005DE689 /* TDeckViewController.h */,
-				27EFF3FB187E9D9A005DE689 /* TDeckViewController.m */,
-				27EFF3FD187E9EAD005DE689 /* TTeammanagementViewController.h */,
-				27EFF3FE187E9EAD005DE689 /* TTeammanagementViewController.m */,
-				27EFF400187E9F52005DE689 /* TSettingsViewController.h */,
-				27EFF401187E9F52005DE689 /* TSettingsViewController.m */,
-				27EFF403187E9FE5005DE689 /* TProfilViewController.h */,
-				27EFF404187E9FE5005DE689 /* TProfilViewController.m */,
-				27EFF406187EA0C4005DE689 /* TFriendsViewController.h */,
-				27EFF407187EA0C4005DE689 /* TFriendsViewController.m */,
+				27C08099189A636900F4DE64 /* CardViewController */,
+				27C0808F189A4BB100F4DE64 /* GameViewController */,
 				27EFF43A187EABDD005DE689 /* TProductViewController.h */,
 				27EFF43B187EABDD005DE689 /* TProductViewController.m */,
 				272D1A761889206800545543 /* TLogInViewController.h */,
 				272D1A771889206800545543 /* TLogInViewController.m */,
-				27C195CC188990E900BE7B66 /* TUsersDeckViewController.h */,
-				27C195CD188990E900BE7B66 /* TUsersDeckViewController.m */,
+				27EFF3D1187E959B005DE689 /* FirstViewController.h */,
+				27EFF3D2187E959B005DE689 /* FirstViewController.m */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		27EFF6EE187ED80B005DE689 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				27EFF6EC187ED095005DE689 /* EANCodes.plist */,
-			);
-			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +638,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "David Joerg";
 				TargetAttributes = {
+					27EFF3B5187E959A005DE689 = {
+						DevelopmentTeam = 364S2LP6R8;
+					};
 					27EFF3DC187E959B005DE689 = {
 						TestTargetID = 27EFF3B5187E959A005DE689;
 					};
@@ -497,9 +707,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2798351818ABB1C8002CC890 /* carddeck.jpg in Resources */,
+				27C0808E189A437D00F4DE64 /* TNutritiveCell.xib in Resources */,
 				27EFF3D0187E959B005DE689 /* Main_iPad.storyboard in Resources */,
+				2771FD3818B14FA100974C64 /* sword.png in Resources */,
+				27008BA618AA28AF00432BC2 /* TOverviewCardViewController.xib in Resources */,
 				27EFF3D8187E959B005DE689 /* Images.xcassets in Resources */,
+				2771FD3C18B14FAA00974C64 /* shield.png in Resources */,
+				27C9D33318AE5C3E0070C697 /* noAvatar.jpg in Resources */,
+				272AB6A518B2A9020093BA10 /* arrowup.png in Resources */,
+				2771FD3B18B14FAA00974C64 /* heart.png in Resources */,
+				272AB6A418B2A9020093BA10 /* arrowdown.png in Resources */,
 				27EFF3CD187E959A005DE689 /* Main_iPhone.storyboard in Resources */,
+				2771FD3618B0C3C100974C64 /* emptyField.png in Resources */,
+				2798350C18AB789E002CC890 /* cardback.jpg in Resources */,
+				272D3B1A1897D40800236EBB /* TDetailCardViewController.xib in Resources */,
+				2798350218AB703A002CC890 /* nopic.png in Resources */,
 				27EFF3C4187E959A005DE689 /* InfoPlist.strings in Resources */,
 				27EFF6ED187ED095005DE689 /* EANCodes.plist in Resources */,
 			);
@@ -520,26 +743,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E64866188831E0003FA9C6 /* User.m in Sources */,
-				27388B6B1887E0A30083512D /* Item.m in Sources */,
+				27ECBEF018A39DAC008FF741 /* NSData+SRB64Additions.m in Sources */,
+				27E64866188831E0003FA9C6 /* Player.m in Sources */,
+				2798351018AB7923002CC890 /* TGameManager.m in Sources */,
+				27ECBEEF18A39DAC008FF741 /* base64.c in Sources */,
 				27EFF3D6187E959B005DE689 /* SecondViewController.m in Sources */,
 				2769CAE8188ECFAD00824DAF /* SHACode.m in Sources */,
+				27C08098189A5F1100F4DE64 /* Game.m in Sources */,
 				27EFF40C187EA268005DE689 /* TMenuButton.m in Sources */,
+				2798351E18ABD332002CC890 /* TCardField.m in Sources */,
+				2781D87C18928F55002366EB /* Nutritive.m in Sources */,
 				272D1A781889206800545543 /* TLogInViewController.m in Sources */,
+				27008B9618AA199000432BC2 /* CardGenerator.m in Sources */,
 				27EFF43C187EABDD005DE689 /* TProductViewController.m in Sources */,
-				27EFF3FF187E9EAD005DE689 /* TTeammanagementViewController.m in Sources */,
+				272E6EB318ACF58A00869EA1 /* Opponent.m in Sources */,
+				27ECBEF118A39DAC008FF741 /* SRWebSocket.m in Sources */,
+				27C9D32618AE149B0070C697 /* DataManager.m in Sources */,
 				27C195CE188990E900BE7B66 /* TUsersDeckViewController.m in Sources */,
+				27ECBEFA18A3A50A008FF741 /* Websocket.m in Sources */,
 				27EFF3F6187E9C98005DE689 /* TGameViewController.m in Sources */,
 				27EFF3CA187E959A005DE689 /* AppDelegate.m in Sources */,
-				27EFF402187E9F52005DE689 /* TSettingsViewController.m in Sources */,
+				27008BA518AA28AF00432BC2 /* TOverviewCardViewController.m in Sources */,
 				27EFF3D3187E959B005DE689 /* FirstViewController.m in Sources */,
+				272D3B191897D40800236EBB /* TDetailCardViewController.m in Sources */,
 				275D38F218899342006A0CCE /* TCardCollectionViewCell.m in Sources */,
+				27008C1718C786BC00E801CE /* UserCoreData.xcdatamodeld in Sources */,
+				27C0808C189A436900F4DE64 /* TNutritiveCell.m in Sources */,
 				27EFF3F9187E9D07005DE689 /* TLobbyViewController.m in Sources */,
-				27EFF408187EA0C4005DE689 /* TFriendsViewController.m in Sources */,
+				27C08092189A4C6A00F4DE64 /* SpinnerView.m in Sources */,
 				27EFF6EB187EB997005DE689 /* Product.m in Sources */,
 				27EFF3C6187E959A005DE689 /* main.m in Sources */,
+				270E077C18CF559E0073D015 /* UserData.m in Sources */,
 				27EFF3FC187E9D9A005DE689 /* TDeckViewController.m in Sources */,
-				27EFF405187E9FE5005DE689 /* TProfilViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +916,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -700,6 +937,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -709,6 +947,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TudorGame/TudorGame-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -728,6 +968,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -805,6 +1046,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27008C1518C786BC00E801CE /* UserCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27008C1618C786BC00E801CE /* UserCoreData.xcdatamodel */,
+			);
+			currentVersion = 27008C1618C786BC00E801CE /* UserCoreData.xcdatamodel */;
+			path = UserCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27EFF3AE187E959A005DE689 /* Project object */;
 }

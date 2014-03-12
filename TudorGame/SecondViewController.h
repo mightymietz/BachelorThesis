@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SecondViewController : UIViewController
+#import "TMenuButton.h"
+@interface SecondViewController : UIViewController <UIAlertViewDelegate>
+- (IBAction)abortGameBtnTouched:(id)sender;
+- (IBAction)resumGameBtnTouched:(id)sender;
+@property (weak, nonatomic) IBOutlet TMenuButton *resumeGameBtn;
+@property (weak, nonatomic) IBOutlet TMenuButton *abortGameBtn;
 
 @end
