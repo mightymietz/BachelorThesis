@@ -39,8 +39,38 @@
     self.player = self.dataManager.player;
     self.game = self.dataManager.game;
     self.opponent = self.dataManager.game.opponent;
-    self.player.cardsInDeck =[NSMutableArray arrayWithArray: self.player.products];
-    self.player.cardsInGame = [self shuffleProducts:self.player.cardsInDeck];
+    if(self.dataManager.player.cardsInDeck.count <= 0)
+    {
+        self.player.cardsInDeck = [NSMutableArray arrayWithArray:self.player.products];
+    }
+    //self.player.cardsInDeck =[NSMutableArray arrayWithArray: self.player.products];
+    NSMutableArray *array = [[NSMutableArray alloc ] init];
+    for(int i = 0; i < self.player.cardsInDeck.count;i++)
+    {
+        Product *p = [self.player.cardsInDeck objectAtIndex:i];
+        
+        Product *copiedP = [[Product alloc] init];
+        copiedP.EANCode = p.EANCode;
+        copiedP.EANType = p.EANType;
+        copiedP.wikiFoodID = p.wikiFoodID;
+        copiedP.name = p.name;
+        copiedP.atk = p.atk;
+        copiedP.hp = p.hp;
+        copiedP.def = p.def;
+        copiedP.spellValue = p.spellValue;
+        copiedP.spelltype = p.spelltype;
+        copiedP.spellCard = p.spellCard;
+        copiedP.position = p.position;
+        copiedP.oldPosition = p.oldPosition;
+        copiedP.isInDefensePosition = p.isInDefensePosition;
+        copiedP.country = p.country;
+        copiedP.ingredients = p.ingredients;
+        copiedP.nutritives = p.nutritives;
+        copiedP.sortedNutritives = p.sortedNutritives;
+        
+        [array addObject:p];
+    }
+    self.player.cardsInGame = [self shuffleProducts:array];
 
 
 
