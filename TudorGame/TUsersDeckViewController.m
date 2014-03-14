@@ -412,20 +412,35 @@
     {
         self.closeDetailView = YES;
         CGPoint touch = [recognizer locationInView:self.view];
-        UIView *touchedView = [self.view hitTest:touch withEvent:nil];
+        //UIView *touchedView = [self.view hitTest:touch withEvent:nil];
         Product *product;
         
         if(CGRectContainsPoint(self.collectionView.frame, touch))
         {
              CGPoint point = [recognizer locationInView:self.collectionView];
              NSIndexPath *path =  [self.collectionView indexPathForItemAtPoint:point];
-             product = [self.dataManager.player.products objectAtIndex:path.row];
+            if(path)
+            {
+                product = [self.dataManager.player.products objectAtIndex:path.row];
+            }
+            else
+            {
+                self.closeDetailView = NO;
+            }
         }
         else if(CGRectContainsPoint(self.collectionViewCurrentDeck.frame, touch))
         {
             CGPoint point = [recognizer locationInView:self.collectionViewCurrentDeck];
             NSIndexPath *path =  [self.collectionViewCurrentDeck indexPathForItemAtPoint:point];
-            product = [self.dataManager.player.products objectAtIndex:path.row];
+            
+            if(path)
+            {
+                product = [self.dataManager.player.cardsInDeck objectAtIndex:path.row];
+            }
+            else
+            {
+                self.closeDetailView = NO;
+            }
         }
 
        
