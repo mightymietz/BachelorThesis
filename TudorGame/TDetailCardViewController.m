@@ -25,17 +25,7 @@
     if (self)
     {
         
-        //Generiere Farbe für tableViewCells aus der Hintergrundfarbe der view
-        UIColor *backgroundColor = self.view.backgroundColor;
-        const CGFloat* components = CGColorGetComponents(backgroundColor.CGColor);
-        CGFloat red = components[0];
-        CGFloat green = components[1];
-        CGFloat blue = components[2];
-        CGFloat alpha = CGColorGetAlpha([[UIColor greenColor] CGColor]);
-        
-        self.cellColor1 = [UIColor colorWithRed:red green:green blue:blue alpha:alpha - 0.9f];
-        self.cellColor2 = [UIColor colorWithRed:red green:green blue:blue alpha:alpha - 0.4f];
-    }
+          }
     return self;
 }
 
@@ -48,9 +38,113 @@
     static NSString *CellIdentifier = @"NutritiveCell";
     UINib *cellNib = [UINib nibWithNibName:@"TNutritiveCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:CellIdentifier];
-    // Do any additional setup after loading the view from its nib.
+   
+    [self fillValues];
+}
+
+-(void)fillValues
+{
+    
+   
+    
     self.nameLabel.text = self.product.name;
     self.EANLabel.text =[NSString stringWithFormat:@"%@", self.product.EANCode];
+    
+
+    
+    
+    
+    
+    if([self.product.spellCard boolValue] == YES)
+    {
+        self.view.backgroundColor = [UIColor colorWithRed:0 green:0.8f blue:0 alpha:1];
+        
+        
+        if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_ATK] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_ATK])
+        {
+            //self.attackImageView.image = [UIImage imageNamed:@"sword.png"];
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"ATK: %@%%",self.product.spellValue];
+            
+            //Ist es Buff oder Debuff? Ändere das Bild entsprechend
+            if([self.product.spellValue intValue] > 0)
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
+            }
+            else
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowdown.png"];
+                
+            }
+            
+        }
+        else if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_HP] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_HP])
+        {
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"HP: %@%%",self.product.spellValue];
+            
+            
+            //Ist es Buff oder Debuff? Ändere das Bild entsprechend
+            if([self.product.spellValue intValue] > 0)
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
+            }
+            else
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowdown.png"];
+                
+            }
+            
+        }
+        else if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_DEF] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_DEF])
+        {
+            self.attackLabel.text = @"-";
+            self.defenseLabel.text = @"-";
+            self.lifepointsLabel.text =[NSString stringWithFormat:@"DEF: %@%%",self.product.spellValue];
+            
+            
+            //Ist es Buff oder Debuff? Ändere das Bild entsprechend
+            if([self.product.spellValue intValue] > 0)
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowup.png"];
+            }
+            else
+            {
+                self.lifePointsImageView.image = [UIImage imageNamed:@"arrowdown.png"];
+                
+            }
+            
+        }
+        
+        self.cellColor1 = [UIColor colorWithRed:0 green:0.7f blue:0 alpha:1];
+        self.cellColor2 = [UIColor colorWithRed:0 green:0.5f blue:0 alpha: 1];
+    }
+    else
+    {
+        self.view.backgroundColor = [UIColor blackColor];
+        
+        self.defenseLabel.text =[NSString stringWithFormat:@"%@", self.product.def];
+        self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
+        self.lifepointsLabel.text =[NSString stringWithFormat:@"%@", self.product.hp];
+        /*if([self.product.isInDefensePosition boolValue])
+         {
+         self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.def];
+         
+         }
+         else
+         {
+         self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
+         }
+         self.lifepointsLabel.text =[NSString stringWithFormat:@"%@", self.product.hp];*/
+        self.cellColor1 = [UIColor colorWithRed:0 green:0 blue:0 alpha: 0.5f];
+        self.cellColor2 = [UIColor colorWithRed:0 green:0 blue:0 alpha: 0.3f];
+        
+    }
+    
+
+
     
 }
 
@@ -60,9 +154,7 @@
    
     
     self.product = product;
-    self.nameLabel.text = self.product.name;
-    self.EANLabel.text =[NSString stringWithFormat:@"%@", self.product.EANCode];
-    
+    [self fillValues];
     self.dataArray = self.product.sortedNutritives;
 }
 
@@ -109,10 +201,9 @@
    // Nutritive *currentNutritive = [self.dataArray objectAtIndex:indexPath.row];
     
     cell.nameLabel.text = [self getNutritiveTextForRow:row];
-    
     cell.valueLabel.text = [self getNutritiveValueForRow:row];
     
-    if(indexPath.row % 2 == 0)
+    if(row % 2 == 0)
     {
 
         cell.backgroundColor = self.cellColor1;
@@ -193,7 +284,7 @@
             default:
             {
                  currentNutritive = [self.dataArray objectAtIndex:row + 1];
-                 value = [NSString stringWithFormat:@"%@", currentNutritive.value];
+                 value = [NSString stringWithFormat:@"%@ %@", currentNutritive.value, currentNutritive.unit];
             }
                 break;
         }
