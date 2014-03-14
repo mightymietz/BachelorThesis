@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SRWebSocket.h"
-@interface FirstViewController : UIViewController <UIAlertViewDelegate>
+#import "CustomIOS7AlertView.h"
+@interface FirstViewController : UIViewController <UIAlertViewDelegate, CustomIOS7AlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
+- (IBAction)buyNewCardBtnTouched:(id)sender;
 @end

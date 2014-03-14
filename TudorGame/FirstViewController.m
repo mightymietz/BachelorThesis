@@ -12,6 +12,9 @@
 #import "TLogInViewController.h"
 #import "AppSpecificValues.h"
 #import "SpinnerView.h"
+#import "CardGenerator.h"
+#import "TDetailCardViewController.h"
+
 
 @interface FirstViewController ()
 @property(nonatomic,retain)DataManager *dataManager;
@@ -26,7 +29,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-  
+ 
     
     
    
@@ -49,6 +52,7 @@
      object:nil];
      
     self.dataManager = [DataManager sharedManager];
+    self.pointsLabel.text = [NSString stringWithFormat:@"%d", self.dataManager.player.points];
     if(![self.dataManager.player.status isEqualToString:USER_LOGGED_IN])
     {
         //Hat USer bereits einen Name und Passwort eingegeben, versuche mit server zu connecten
@@ -195,10 +199,53 @@
             [self connectUser];
         }
     }
+    else if(alertView.tag == 3) //Buy new card
+    {
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(productReceived:)
+         name: PRODUCT_RECEIVED
+         object:nil];
+        DataManager *dataManager = [DataManager sharedManager];
+        [dataManager getNewProductViaWebsocket];
+        
+    }
+}
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
+{
+    NSLog(@"Button at position %d is clicked on alertView %d.", buttonIndex, [alertView tag]);
+    [alertView close];
+    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:PRODUCT_RECEIVED
+     object:nil];
 }
 
 
-
+-(void)productReceived:(NSDictionary *)userInfo
+{
+     DataManager *dataManager = [DataManager sharedManager];
+     Product *receivedProduct = dataManager.receivedProduct;
+    
+    //Add received products to players products
+    [dataManager.player.products addObject:receivedProduct];
+    dataManager.player.points -= 1000;
+    self.pointsLabel.text = [NSString stringWithFormat:@"%d", self.dataManager.player.points];
+    TDetailCardViewController *card = [CardGenerator generateDetailCard:receivedProduct];
+    
+    CustomIOS7AlertView *alertView = [[CustomIOS7AlertView alloc] init];
+    float resizeFactor = 0.4f;
+    UIImageView *cardImageView =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, alertView.frame.size.width * resizeFactor, alertView.frame.size.height * resizeFactor)];
+    cardImageView.image = [card snapshotView];
+    [alertView setContainerView:cardImageView];
+    [alertView setButtonTitles:[NSMutableArray arrayWithObjects:@"add to deck", nil]];
+    [alertView setDelegate:self];
+    
+    [alertView show];
+    
+}
 -(void)userStatusChanged:(NSDictionary *)userInfo
 {
     NSString *newStatus = self.dataManager.player.status;
@@ -247,6 +294,25 @@
        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"successful" message:@"you are logged in" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
     [alert show];
      [SpinnerView removeSpinnerFromViewController:self];
+}
+
+- (IBAction)buyNewCardBtnTouched:(id)sender
+{
+    DataManager *manager = [DataManager sharedManager];
+    int points = manager.player.points;
+    
+    if(points - 1000 >= 0)
+    {
+        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"Buy new Card for your deck" message:@"Do you want to spend 1000 points for a new card?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+        alertview.tag = 3;
+        [alertview show];
+    }
+    else
+    {
+        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"Not enough points" message:@"You don`t have enough points to buy a new card! \n scan new products to gain more points" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        alertview.tag = 4;
+        [alertview show];
+    }
 }
 
 @end
