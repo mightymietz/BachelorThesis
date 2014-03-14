@@ -31,7 +31,7 @@
     float cellWidth = self.superview.frame.size.width;
     float cellHeight = frame.size.height;
     float labelWidth = cellWidth * 0.5f;
-    float labelHeight = cellHeight * 0.5f;
+    float labelHeight = cellHeight * 0.8f;
     frame.size.width = cellWidth;
     float fontSize = cellWidth / 20;
     float padding = 10;
