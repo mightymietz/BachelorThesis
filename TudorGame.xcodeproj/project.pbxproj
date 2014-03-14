@@ -37,6 +37,7 @@
 		2798351018AB7923002CC890 /* TGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2798350F18AB7923002CC890 /* TGameManager.m */; };
 		2798351818ABB1C8002CC890 /* carddeck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2798351718ABB1C8002CC890 /* carddeck.jpg */; };
 		2798351E18ABD332002CC890 /* TCardField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2798351D18ABD332002CC890 /* TCardField.m */; };
+		279C3BDB18D3126B00CD986C /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C3BDA18D3126B00CD986C /* CustomIOS7AlertView.m */; };
 		27C0808C189A436900F4DE64 /* TNutritiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C0808B189A436900F4DE64 /* TNutritiveCell.m */; };
 		27C0808E189A437D00F4DE64 /* TNutritiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C0808D189A437D00F4DE64 /* TNutritiveCell.xib */; };
 		27C08092189A4C6A00F4DE64 /* SpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C08091189A4C6A00F4DE64 /* SpinnerView.m */; };
@@ -169,6 +170,8 @@
 		2798351718ABB1C8002CC890 /* carddeck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carddeck.jpg; sourceTree = "<group>"; };
 		2798351C18ABD332002CC890 /* TCardField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCardField.h; sourceTree = "<group>"; };
 		2798351D18ABD332002CC890 /* TCardField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCardField.m; sourceTree = "<group>"; };
+		279C3BD918D3126B00CD986C /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		279C3BDA18D3126B00CD986C /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
 		27C0808A189A436900F4DE64 /* TNutritiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNutritiveCell.h; sourceTree = "<group>"; };
 		27C0808B189A436900F4DE64 /* TNutritiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNutritiveCell.m; sourceTree = "<group>"; };
 		27C0808D189A437D00F4DE64 /* TNutritiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TNutritiveCell.xib; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 		278EE8631897A117003FEBC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				279C3BD918D3126B00CD986C /* CustomIOS7AlertView.h */,
+				279C3BDA18D3126B00CD986C /* CustomIOS7AlertView.m */,
 				27C08090189A4C6A00F4DE64 /* SpinnerView.h */,
 				27C08091189A4C6A00F4DE64 /* SpinnerView.m */,
 			);
@@ -780,6 +785,7 @@
 				27EFF6EB187EB997005DE689 /* Product.m in Sources */,
 				27EFF3C6187E959A005DE689 /* main.m in Sources */,
 				270E077C18CF559E0073D015 /* UserData.m in Sources */,
+				279C3BDB18D3126B00CD986C /* CustomIOS7AlertView.m in Sources */,
 				27EFF3FC187E9D9A005DE689 /* TDeckViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
