@@ -55,7 +55,7 @@
 {
    
     self.player.lifePoints = [NSNumber numberWithInt:2000];
-    
+    self.player.points = 1000;
     //Nur zu testzwecken
    /* NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:20];
     
@@ -315,6 +315,65 @@
     NSString *message = [[NSString alloc] initWithData:postdata encoding:NSUTF8StringEncoding];
     [socket sendMessage:message];
     
+}
+-(void)getNewProductViaWebsocket
+{
+    Websocket *socket = [Websocket sharedManager];
+    
+    
+    
+    NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         self.player.name, @"username",
+                         [SHACode getHash: self.player.password], @"password",
+                         self.player.currentID, @"id",
+                         GET_NEW_PRODUCT,MESSAGE_TYPE,
+                         nil];
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:tmp options:0 error:&error];
+    
+    NSString *message = [[NSString alloc] initWithData:postdata encoding:NSUTF8StringEncoding];
+    [socket sendMessage:message];
+    
+}
+-(void)getProductViaWebsocket:(NSString*)eanCode
+{
+    Websocket *socket = [Websocket sharedManager];
+    
+    
+    
+    NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         self.player.name, @"username",
+                         [SHACode getHash: self.player.password], @"password",
+                         self.player.currentID, @"id",
+                         GET_PRODUCT,MESSAGE_TYPE,
+                        eanCode, @"eanCode",
+                         nil];
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:tmp options:0 error:&error];
+    
+    NSString *message = [[NSString alloc] initWithData:postdata encoding:NSUTF8StringEncoding];
+    [socket sendMessage:message];
+    
+}
+
+-(void)getQuestionViaWebsocket:(NSString*)eanCode
+{
+    Websocket *socket = [Websocket sharedManager];
+    
+    
+    
+    NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         self.player.name, @"username",
+                         [SHACode getHash: self.player.password], @"password",
+                         self.player.currentID, @"id",
+                         GET_QUESTION,MESSAGE_TYPE,
+                         eanCode, @"eanCode",
+                         nil];
+    NSError *error;
+    NSData *postdata = [NSJSONSerialization dataWithJSONObject:tmp options:0 error:&error];
+    
+    NSString *message = [[NSString alloc] initWithData:postdata encoding:NSUTF8StringEncoding];
+    [socket sendMessage:message];
 }
 
 -(void)quitRunningGame
@@ -576,7 +635,70 @@
     
 }
 
+-(void)mapReceivedProductFromDictionary:(NSDictionary*)productsDict
+{
+    self.receivedProduct = [[Product alloc] init];
+    // Now configure the Nutritive mapping
+    RKObjectMapping *nutritiveMapping = [RKObjectMapping mappingForClass:[Nutritive class] ];
+    [nutritiveMapping addAttributeMappingsFromDictionary:@{
+                                                           @"id": @"nutritiveID",
+                                                           @"value": @"value",
+                                                           @"name": @"name",
+                                                           @"unit" : @"unit"
+                                                           }];
+    
+    
+    RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[Product class]];
+    
+    [productMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"nutritives"
+                                                                                   toKeyPath:@"nutritives"
+                                                                                 withMapping:nutritiveMapping]];
+    [ productMapping addAttributeMappingsFromDictionary:@{@"eancode" : @"EANCode",
+                                                          @"eantype" : @"EANType",
+                                                          @"wikifoodid" : @"wikiFoodID",
+                                                          @"name" : @"name",
+                                                          @"atk" :@"atk",
+                                                          @"hp": @"hp",
+                                                          @"def": @"def",
+                                                          @"spellValue": @"spellValue",
+                                                          @"spellType": @"spelltype",
+                                                          @"spellCard": @"spellCard",
+                                                          @"ingredients" : @"ingredients",
+                                                          @"position" : @"position",
+                                                          @"oldPosition" :@"oldPosition"
+                                                          }];
+    
+    
+    RKObjectMapping *productsMapping = [RKObjectMapping mappingForClass:[self class]];
+    [productsMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"product"
+                                                                                    toKeyPath:@"receivedProduct"
+                                                                                  withMapping:productMapping]];
+    
+    /* [productsMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"products"
+     toKeyPath:@"cardsInDeck"
+     withMapping:productMapping]];*/
+    
+    
+    
+    
+    
+    NSDictionary *mappingsDictionary = @{ @"": productsMapping };
+    RKMapperOperation *mapper = [[RKMapperOperation alloc] initWithRepresentation:productsDict mappingsDictionary:mappingsDictionary];
+    mapper.targetObject = self;
+    NSError *mappingError = nil;
+    BOOL isMapped = [mapper execute:&mappingError];
+    if (isMapped && !mappingError)
+    {
+        // Yay! Mapping finished successfully
+        // NSLog(@"mapper: %@", [mapper representation]);
+        
+        // self.products= game;
+        
+    }
+    
 
+
+}
 
 
 -(void)mapProductsFromDictionary:(NSDictionary*)productsDict
