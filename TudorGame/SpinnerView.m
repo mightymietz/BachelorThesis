@@ -8,6 +8,7 @@
 
 #import "SpinnerView.h"
 #import <QuartzCore/QuartzCore.h> 
+#import "AppSpecificValues.h"
 @interface SpinnerView()
 @end
 
@@ -26,7 +27,18 @@
 {
   
     // Create a new view with the same frame size as the superView
-    SpinnerView *spinnerView = [[SpinnerView alloc] initWithFrame:vc.view.frame];
+    CGRect frame;
+    
+    if(IS_IPHONE5)
+    {
+        frame = CGRectMake(0, 0, 568, 320);
+        
+    }
+    else
+    {
+       frame = CGRectMake(0, 0, 480, 320);
+    }
+    SpinnerView *spinnerView = [[SpinnerView alloc] initWithFrame:frame];
     spinnerView.tag = 110;
     // If something's gone wrong, abort!
     if(!spinnerView){ return nil; }
@@ -54,7 +66,7 @@
     abortButton.layer.borderWidth = 1.0f;
     abortButton.layer.cornerRadius = 20.0f;
     abortButton.frame = CGRectMake(spinnerView.center.x, spinnerView.center.y, 160.0f, 40.0f);
-    abortButton.center = CGPointMake(spinnerView.center.x, spinnerView.center.y + 100.0f);
+    abortButton.center = CGPointMake(spinnerView.center.x, spinnerView.center.y + 70.0f);
     [spinnerView addSubview:abortButton];
     
     ///////////////////
