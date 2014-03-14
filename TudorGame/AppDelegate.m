@@ -279,6 +279,28 @@
          userInfo:nil];
         
     }
+    if([messageType isEqualToString:PRODUCT])
+    {
+ 
+        [manager mapReceivedProductFromDictionary:JSONdict];
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName: PRODUCT_RECEIVED
+         object:self
+         userInfo:nil];
+        
+    }
+    if([messageType isEqualToString:QUESTION])
+    {
+        
+       // [manager mapReceivedProductFromDictionary:JSONdict];
+        manager.receivedQuestion = [JSONdict objectForKey:@"question"];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName: QUESTION_RECEIVED
+         object:self
+         userInfo:nil];
+        
+    }
     
     if([messageType isEqualToString:GAMEDATA])
     {
