@@ -29,9 +29,14 @@
 #pragma Messages
 //-----------------------------------------------------------------------------------------------------
 #define GET_PRODUCTS @"GET_PRODUCTS"
+#define GET_PRODUCT @"GET_PRODUCT"
+#define GET_NEW_PRODUCT @"GET_NEW_PRODUCT"
+#define GET_QUESTION @"GET_QUESTION"
 #define USERDATA @"USERDATA"
 #define GAMEDATA @"GAMEDATA"
 #define PRODUCTS @"PRODUCTS"
+#define PRODUCT @"PRODUCT"
+#define QUESTION @"QUESTION"
 #define GET_GAME @"GET_GAME"
 #define QUIT_GAME @"QUIT_GAME"
 #define START_GAME @"START_GAME"
@@ -75,6 +80,8 @@
 #define DID_RECEIVE_DATA_FROM_WEBSOCKET @"WebsocketReceivedData"
 #define USER_STATUS_CHANGED @"UserStatusChanged"
 #define PRODUCTS_UPDATED @"ProductsUpdated"
+#define PRODUCT_RECEIVED @"ProductReceived"
+#define QUESTION_RECEIVED @"QuestionReceived"
 #define GAME_UPDATED @"GameUpdated"
 
 //-----------------------------------------------------------------------------------------------------
