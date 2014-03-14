@@ -15,7 +15,8 @@
 @property(nonatomic, retain) Game *game;
 @property(nonatomic, retain) Player *player;
 @property(strong) UserData *coreData;
-
+@property(nonatomic, retain) Product *receivedProduct;
+@property(nonatomic, retain) NSString *receivedQuestion;
 
 + (id)sharedManager;
 
@@ -24,6 +25,9 @@
 -(BOOL)saveUsername: (NSString*)name andPassword:(NSString*)password;
 -(void)sendUserDataViaWebSocket;
 -(void)getProductsViaWebsocket;
+-(void)getProductViaWebsocket:(NSString*)eanCode;
+-(void)getNewProductViaWebsocket;
+-(void)getQuestionViaWebsocket:(NSString*)eanCode;
 -(void)searchGameViaWebsocket;
 -(void)startGameViaWebsocket;
 -(void)sendReadyViaSocket;
@@ -35,5 +39,6 @@
 /////////MAPPING//////////////////////////
 -(void)mapProductsFromDictionary:(NSDictionary*)productsDict;
 -(void)mapGameFromDictionary:(NSDictionary*)gameDict;
+-(void)mapReceivedProductFromDictionary:(NSDictionary*)productsDict;
 -(NSDictionary*)mapGameDataToDictionary:(Game*)gameData;
 @end
