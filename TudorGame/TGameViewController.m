@@ -437,11 +437,14 @@ dispatch_semaphore_t _animationSemaphore;
         
         if([gameData.gameState isEqualToString:GAMESTATE_FINISHED])
         {
+          
             //Player wins
             if([self.gameData.opponent.lifePoints intValue] <= 0)
             {
                 [[NSNotificationCenter defaultCenter]
-                 removeObserver:self];
+                 removeObserver:self
+                 name:GAME_UPDATED
+                 object:nil];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You win" message:@"congratulations!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"THANK YOU", nil];
                 alert.tag = 1;
                 [alert show];
@@ -452,6 +455,10 @@ dispatch_semaphore_t _animationSemaphore;
             //Opponent wins
             else if([self.dataManger.player.lifePoints intValue] <= 0)
             {
+                [[NSNotificationCenter defaultCenter]
+                 removeObserver:self
+                 name:GAME_UPDATED
+                 object:nil];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You lose" message:@"don`t be disappointed ;( " delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 alert.tag = 1;
                 [alert show];
