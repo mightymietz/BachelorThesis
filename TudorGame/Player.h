@@ -23,6 +23,7 @@
 @property(nonatomic, copy) NSMutableArray *cardsOnField;
 @property(nonatomic, retain) NSMutableArray *cardsInGame;
 @property(nonatomic, copy) NSNumber *lifePoints;
+@property(nonatomic) int points;
 @property(nonatomic, copy) NSNumber *isInTurn;
 @property(nonatomic, retain) NSString* status;
 
