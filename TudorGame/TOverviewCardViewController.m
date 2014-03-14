@@ -67,7 +67,7 @@
     
     if([self.product.spellCard boolValue] == YES)
     {
-        self.view.backgroundColor = [UIColor greenColor];
+       self.view.backgroundColor = [UIColor colorWithRed:0 green:0.8f blue:0 alpha:1];
 
         
         if([self.product.spelltype isEqualToString:SPELLTYPE_DECREMENT_ATK] || [self.product.spelltype isEqualToString:SPELLTYPE_INCREMENT_ATK])
