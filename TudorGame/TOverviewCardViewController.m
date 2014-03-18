@@ -172,6 +172,9 @@
     //self.attackImageView.image = [UIImage imageNamed:@"shield.png"];
     self.product.isInDefensePosition = [NSNumber numberWithBool:YES];
 
+    self.attackLabel.textColor = [UIColor grayColor];
+    self.defenseLabel.textColor = [UIColor whiteColor];
+    self.lifepointsLabel.textColor = [UIColor grayColor];
 
 }
 -(void)attackMode
@@ -181,6 +184,9 @@
        // self.attackLabel.text =[NSString stringWithFormat:@"%@", self.product.atk];
         //self.attackImageView.image = [UIImage imageNamed:@"sword.png"];
         self.product.isInDefensePosition = [NSNumber numberWithBool:NO];
+        self.attackLabel.textColor = [UIColor whiteColor];
+        self.defenseLabel.textColor = [UIColor grayColor];
+        self.lifepointsLabel.textColor = [UIColor whiteColor];
 
     }
 
