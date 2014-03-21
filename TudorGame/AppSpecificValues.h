@@ -16,9 +16,10 @@
 //-----------------------------------------------------------------------------------------------------
 #pragma Server
 //-----------------------------------------------------------------------------------------------------
+//Tudor: 10.14.1.83:8080
 
-#define WEBSOCKET_ADDRESS @"ws://10.14.1.83:8080/TudorGameServer/game"
-#define SERVERADDRESS @"http://10.14.1.83:8080"
+#define WEBSOCKET_ADDRESS @"ws://158.64.4.169:8080/TudorGameServer/game"
+#define SERVERADDRESS @"http://158.64.4.169:8080"
 #define REQUEST_CONNECT @"TudorGameServer/request/connectuser"
 #define REQUEST_PRODUCTS @"TudorGameServer/request/getproducts"
 #define REQUEST_QUICKGAME @"TudorGameServer/request/getquickgame"
