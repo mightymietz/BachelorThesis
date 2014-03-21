@@ -2895,7 +2895,7 @@ dispatch_semaphore_t _animationSemaphore;
         
         TCardField *cardField = (TCardField*) touchedView;
         
-        if(cardField.isTouchable && cardField.isAssigned == NO &&
+        if(cardField.isTouchable &&
            (cardField != self.opponentField1 &&
             cardField != self.opponentField2 &&
             cardField != self.opponentField3 &&
