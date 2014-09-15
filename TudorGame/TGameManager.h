@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "Opponent.h"
 #import "CardGenerator.h"
+
 @interface TGameManager : NSObject
 
 
