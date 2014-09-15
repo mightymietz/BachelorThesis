@@ -201,13 +201,16 @@
     }
     else if(alertView.tag == 3) //Buy new card
     {
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(productReceived:)
-         name: PRODUCT_RECEIVED
-         object:nil];
-        DataManager *dataManager = [DataManager sharedManager];
-        [dataManager getNewProductViaWebsocket];
+        if(buttonIndex == 1)
+        {
+            [[NSNotificationCenter defaultCenter]
+             addObserver:self
+             selector:@selector(productReceived:)
+             name: PRODUCT_RECEIVED
+             object:nil];
+            DataManager *dataManager = [DataManager sharedManager];
+            [dataManager getNewProductViaWebsocket];
+        }
         
     }
 }
