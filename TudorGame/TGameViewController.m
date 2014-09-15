@@ -316,7 +316,8 @@ dispatch_semaphore_t _animationSemaphore;
             turnedCard.product = gameData.playedCard.product;
             
             [self turnCard:turnedCard];
-            [turnedCard showEmptyField:YES];
+            if(turnedCard.isHidden)
+                [turnedCard showEmptyField:YES];
             completion(YES);
             
         
