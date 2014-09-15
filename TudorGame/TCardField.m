@@ -9,8 +9,8 @@
 #import "TCardField.h"
 
 @interface TCardField()
-@property (nonatomic,retain)UIImage *snapshot;
-@property (nonatomic,retain)CALayer *borderLayer;
+@property (nonatomic, strong)UIImage *snapshot;
+@property (nonatomic, strong)CALayer *borderLayer;
 
 @end
 @implementation TCardField
